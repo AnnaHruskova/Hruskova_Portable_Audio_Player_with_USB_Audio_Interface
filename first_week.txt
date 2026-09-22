@@ -1,0 +1,14 @@
+V prvním týdnu následující:
+-Prostudujte principy digitálního zpracování a reprodukce zvukových signálů v embedded systémech se zaměřením na běžné formáty digitálního audia, komprimované formáty, audio D/A převodníky a jejich rozhraní. Analyzujte možnosti realizace přenosného audio zařízení na platformě STM32 a navrhněte systémovou architekturu umožňující přehrávání zvukových souborů z paměťové karty a po připojení k počítači provoz zařízení jako USB zvukové karty a velkokapacitního úložiště.
+-Vybrat MCU - Najít vhodné MCU, zkontrolovat dostupnost na Mouser i LCSC. K dispozici je např. STM32G474, případně STM32F446VET6... Ale pohledat...
+-SDIO/MMC rozhraní
+-I2S/SAI
+-"Dostatek" RAM a FLASH
+
+-STM32 - "How to" USB - budete mít dva režimy. AudioClass + Mass storage - zjistit jestli jde dohromady, "Composite device"
+-STM32 - I2S x SAI - co bude pro váš projekt lepší, najít vhodné audio kodeky - bude jen linkový výstup, nebo i sluchátka, nebo i např. CLASS D zesilovač????
+-I2S-SAI - obsluha - HAL, jak DMA,
+
+- Přehrávání zvuku - buď USB audio nebo SD karta - I2S je asi v pohodě, ale jak dekódovat MP3? Nebo zvolit jiný formát????
+
+- Filesystem na SD kartě. podle typu procesoru budou dvě možnosti - FATfs nebo FileX vybereme posléze... ale najít si limity, max. velikost karty apod....
