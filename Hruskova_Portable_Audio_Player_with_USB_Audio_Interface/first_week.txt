@@ -1,0 +1,104 @@
+V prvním týdnu následující:
+-Prostudujte principy digitálního zpracování a reprodukce zvukových signálů v embedded systémech se zaměřením na běžné formáty digitálního audia, komprimované formáty, audio D/A převodníky a jejich rozhraní. Analyzujte možnosti realizace přenosného audio zařízení na platformě STM32 a navrhněte systémovou architekturu umožňující přehrávání zvukových souborů z paměťové karty a po připojení k počítači provoz zařízení jako USB zvukové karty a velkokapacitního úložiště.
+-Vybrat MCU - Najít vhodné MCU, zkontrolovat dostupnost na Mouser i LCSC. K dispozici je např. STM32G474, případně STM32F446VET6... Ale pohledat...
+-SDIO/MMC rozhraní
+-I2S/SAI
+-"Dostatek" RAM a FLASH
+
+-STM32 - "How to" USB - budete mít dva režimy. AudioClass + Mass storage - zjistit jestli jde dohromady, "Composite device"
+-STM32 - I2S x SAI - co bude pro váš projekt lepší, najít vhodné audio kodeky - bude jen linkový výstup, nebo i sluchátka, nebo i např. CLASS D zesilovač????
+-I2S-SAI - obsluha - HAL, jak DMA,
+
+- Přehrávání zvuku - buď USB audio nebo SD karta - I2S je asi v pohodě, ale jak dekódovat MP3? Nebo zvolit jiný formát????
+
+- Filesystem na SD kartě. podle typu procesoru budou dvě možnosti - FATfs nebo FileX vybereme posléze... ale najít si limity, max. velikost karty apod....
+
+
+---------------------------------------------
+---------------------------------------------
+
+ŘEŠENÍ PRVNÍHO TÝDNE
+
+
+- STM32U575VIT6Q, je k dispozici na Mouser,
+	- stejně tak STM32F446VET6
+
+porovnání čipů
+----------------STM32U575RIT6Q--  ||-STM32U575VIT6Q---||-STM32U575ZIT6Q--||---STM32F446VET6
+Flash            2 MB             ||   2 MB           ||   2 MB          ||   512 kB
+SRAM             786 kB           ||   786 kB         ||   786 kB        ||   128 kB
+CPU              M33 / 160 MHz    ||   M33 / 160 MHz  ||   M33 / 160 MHz ||   M4 / 180 MHz
+SAI              2x               ||   2x             ||   2x            ||   2x
+SD karta         SDMMC            ||   2x SDMMC       ||   2x SDMMC      ||   1x SDIO
+interní SMPS     ano              ||   ano            ||   ano           ||   ne
+low-power        velmi dobrý      ||   velmi dobrý    ||   velmi dobrý   ||   horší
+pouzdro          LQFP64           ||   LQFP100        ||   LQFP144       ||   LQFP100
+velikost         10x10 mm         ||   14x14 mm       ||   20x20 mm      ||   14x14 mm
+počet pinů       64               ||   100            ||   144           ||   100
+
+	--> STM32F446VET6 natěsno SRAM, raději více ať je tam rezerva
+	další alternativy: STM32U575RIT6Q ... ale omezené množství na MOUSER, menší velikost, stejná FLASH, SRAM, 2x SAI, 2x SDMMC
+		- STM32U575ZIT6Q - ale 20x20, zbytečně velké...
+    
+    --> nejlepší kompromis velikost/výkon/piny STM32U575VIT6Q
+
+microSD --> SDMMC 4bit --> STM32U575VIT6Q
+                                --> MP3 decoder --> PCM --> SAI (+ DMA) --> audio DAC/kodek --> sluchátkový zesilovač --> sluchátka 3.5 mm jack stereo
+                                --> SPI --> displej
+                                --> USB-AudioClass (z PC jsou posílané po USB jen PCM vzorky)
+
+                                PC ----USB audio, PCM data --> STM32 ----> SAI+DMA ---> DAC --> slcuhátka
+
+    
+
+- COMPOSITE DEVICE
+    - ale je třeba pohlídat, kdy kdo má přístup k SD kartě
+    	--> Pokud bude přes MSC počítači zpřístupněna stejná microSD, ze které zároveň STM32 čte FAT filesystem, nesmí PC a STM32 nezávisle zapisovat do stejného filesystemu.
+    - normal mode STM32 vlasní SD kartu --> MP3 player
+    --> připojení jako Mass Storage ==> STM32 filesystem unmount --> PC ovládá SD kartu
+    --> odpojení USB 
+            --> pc se odpojilo
+            --> STM32 mount SD card
+            --> scan music
+            --> přehrávání
+
+
+- VHODNÉ AUDIO kodeky  (DAC + ADC)
+    - jednočipově = kodek + headphone amp v jednom čipu
+        - max audio rate ale 48 kHz...
+    - dvoučipově = kodek a headphone amp separátně
+        - PCM5102APW — TSSOP-20 --> analogový výstup line level
+        - TPA6111A2D — SOIC-8
+
+        --> full audio kodek není potřeba, ADC část nebude využita (není tam vstup, mikrofon, nahrávání...)
+        ┌─────────────────────┐     SAI / I²S      ┌──────────────┐      L / R      ┌──────────────┐      L / R      ┌───────────┐
+        │ STM32U575VIT6Q      │ ─────────────────▶ │ PCM5102A     │ ─────────────▶ │ TPA6111A2    │ ─────────────▶ │ 3.5 mm TRS│
+        │                     │                    │ TSSOP-20     │                 │ SOIC-8       │                 │ jack      │
+        │ MP3 → PCM           │                    │ stereo DAC   │                 │ headphone amp│                 │           │
+        └─────────────────────┘                    └──────────────┘                 └──────────────┘                 └───────────┘
+    
+        --> PCM5102APW = stereo audio DAC
+            --> přijme PCM vzorky z STM32 přes SAI (třeba přes I2S) a vytvoří z něl L a R kanál
+            --> 32 bit / 384 kHz, dyn. range 112 dB, THD+N -94 dB
+            - režimy se nastavují piny, není potřeba I2S/SAI konfiguraci DACu
+            --> alternativa TI PCM5122 = nabízí I2C/SPI ovládání a digitální audio processing
+        --> TPA6111A2D
+            --> audio výkonový zesilovač
+            --> obsahuje obvod pro omezení lupnutí při zapojení (HotPlug)
+            --> využívá vstupní a výstupní vazební kondenzátory --> na PCB velké kondenzátory
+                - při 32Ω sluchátkách dává 68µF výstupní kondenzátor dolní mez přibližně 73 Hz, pro větší basy bude potřeba větší kapacity
+            
+            - modernější headphone amplifiers jsou ale v QFN/BGA pouzdrech ...
+
+
+-I2S-SAI - obsluha - HAL, jak DMA
+    - DMA pingpong/double buffer
+        - buffer A se přehrává, buffer B se plní, pak se přehrává B a A se plní...
+
+    - WAV --> PCM buffer A,B --> DMA --> SAI --> I2S
+
+
+
+- AUDIO výstup
+    - 3,5mm sluchátkový výstup TRS stereo
+    - zesilovač TPA6111A2
