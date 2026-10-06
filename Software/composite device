@@ -1,0 +1,8 @@
+pro comopsite devices
+- device descriptor musí používat bDeviceClass = 0x00 (USB_DESCR_DEV_CLASS_PER_INTERFACE)
+
+--> #define USB_DESCR_DEV_CLASS_MASS_STORAGE        0x08
+--> #define USB_DESCR_DEV_CLASS_AUDIO               0x01
+
+
+https://deepwiki.com/rafaelmartins/usbd-fs-stm32/9.2-composite-devices
