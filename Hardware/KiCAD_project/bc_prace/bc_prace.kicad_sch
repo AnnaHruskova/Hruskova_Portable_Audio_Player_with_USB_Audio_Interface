@@ -1,0 +1,216 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "db74a520-5f8d-46f6-9928-2225bcffa33d")
+	(paper "A4")
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 74.93 43.18) (xy 119.38 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e4c8fe5-e051-4fc2-93d6-41126988e15a")
+	)
+	(wire
+		(pts
+			(xy 74.93 45.72) (xy 119.38 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc808405-bdbe-4eec-a2e2-724d74299f51")
+	)
+	(sheet
+		(at 30.48 39.37)
+		(size 44.45 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "45aec157-4f4d-4aa3-8b3f-1a09ba082fae")
+		(property "Sheetname" "power"
+			(at 30.48 38.6584 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 30.48 67.8946 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DM" input
+			(at 74.93 43.18 0)
+			(uuid "b533001a-dd71-4175-8c32-131383f88bb7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DP" input
+			(at 74.93 45.72 0)
+			(uuid "dccc7acc-64c9-4fef-b49b-d98da548599b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BAT_TEMP" input
+			(at 74.93 54.61 0)
+			(uuid "871a2399-df41-46bb-9e19-9a513d4e724c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CHG_ALLOW" input
+			(at 74.93 57.15 0)
+			(uuid "47413e81-9565-4b79-84e8-91c32af392d9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CHG_EN1" input
+			(at 74.93 59.69 0)
+			(uuid "6c85de2e-5250-47c8-b645-6acad16da368")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CHG_PGOOD" input
+			(at 74.93 62.23 0)
+			(uuid "7e68becf-a873-4079-839e-550de87c554a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CHG_STATUS" input
+			(at 74.93 64.77 0)
+			(uuid "3744a844-c0a2-4533-b044-df2767b5a55a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 119.38 36.83)
+		(size 60.96 53.34)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7e6655f2-2cf2-4ff4-894a-0a7b2398d4df")
+		(property "Sheetname" "MCU"
+			(at 119.38 36.1184 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 119.38 90.7546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DM" input
+			(at 119.38 43.18 180)
+			(uuid "abd8af21-bbb7-4819-ba94-c2a946b3bbea")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DP" input
+			(at 119.38 45.72 180)
+			(uuid "78f03c32-2247-4833-8d8a-59de30472937")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
