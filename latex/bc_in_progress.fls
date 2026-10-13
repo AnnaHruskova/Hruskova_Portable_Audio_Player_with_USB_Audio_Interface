@@ -1,6 +1,6 @@
-PWD z:\__school\_BC\latex_thoughts_and_prayers
+PWD c:\Users\Queen\Desktop\github\bakalarka\latex
 INPUT C:\Users\Queen\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT z:\__school\_BC\latex_thoughts_and_prayers\bc_in_progress.tex
+INPUT c:\Users\Queen\Desktop\github\bakalarka\latex\bc_in_progress.tex
 OUTPUT bc_in_progress.log
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -271,6 +271,8 @@ INPUT C:\Users\Queen\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecb
 INPUT C:\Users\Queen\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Queen\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
