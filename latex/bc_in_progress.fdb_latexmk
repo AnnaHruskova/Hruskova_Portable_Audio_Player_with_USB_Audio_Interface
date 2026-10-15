@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber bc_in_progress"] 0 "bc_in_progress.bcf" "bc_in_progress.bbl" "bc_in_progress" 1792082640.59994 -1
-  "bc_in_progress.bcf" 1792082640 107820 0a45362bf2fcb0da7abfaa15371c993b "pdflatex"
+["biber bc_in_progress"] 0 "bc_in_progress.bcf" "bc_in_progress.bbl" "bc_in_progress" 1792090950.04612 -1
+  "bc_in_progress.bcf" 1792090949 107820 0a45362bf2fcb0da7abfaa15371c993b "pdflatex"
   "literatura.bib" 1790796525 2718 0e6b397cc69e91fc63c69c55a3b0ae9d ""
   (generated)
   "bc_in_progress.bbl"
   "bc_in_progress.blg"
   (rewritten before read)
-["pdflatex"] 1792082638.97988 "c:/Users/Queen/Desktop/github/bakalarka/latex/bc_in_progress.tex" "bc_in_progress.pdf" "bc_in_progress" 1792082640.60103 0
+["pdflatex"] 1792090948.36347 "c:/Users/Queen/Desktop/github/bakalarka/latex/bc_in_progress.tex" "bc_in_progress.pdf" "bc_in_progress" 1792090950.04718 0
   "C:/Users/Queen/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1791204522 356532 a3607a6f891768bc68e0de038414b645 ""
   "C:/Users/Queen/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1773582878 31952 dfc40131e5596da16099ac7b139f9b25 ""
   "C:/Users/Queen/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1773582883 40136 630aac7e15ca91ab129b8c86f6bf0a8c ""
@@ -51,6 +51,7 @@
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1765441417 146654 eaac99efd6386094bb8a3980e34ec87b ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/cs/babel-cs.ini" 1765441420 4447 101a02f96e435504c452e6c6f0f16371 ""
@@ -135,12 +136,12 @@
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Queen/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "bc_in_progress.aux" 1792082640 3683 4e28e1403ea1083b0f39957343db6def "pdflatex"
+  "bc_in_progress.aux" 1792090949 3789 f3137de56635cb728de619f9432f0e2a "pdflatex"
   "bc_in_progress.bbl" 1791731330 2333 5282f9af347d06ad7c9338bda6693ac6 "biber bc_in_progress"
-  "bc_in_progress.out" 1792082640 1529 12f064282c5670f9f81e24ffece5f9b8 "pdflatex"
-  "bc_in_progress.run.xml" 1792082640 2373 cf24d0cd23f9a0f5654f895e8513e458 "pdflatex"
-  "bc_in_progress.tex" 1792082638 21211 e378c284f13fd341c5e941d596dafa96 ""
-  "c:/Users/Queen/Desktop/github/bakalarka/latex/bc_in_progress.tex" 1792082638 21211 e378c284f13fd341c5e941d596dafa96 ""
+  "bc_in_progress.out" 1792090949 1618 ad0b56a8ddcdcc88bc58453b69568684 "pdflatex"
+  "bc_in_progress.run.xml" 1792090949 2373 cf24d0cd23f9a0f5654f895e8513e458 "pdflatex"
+  "bc_in_progress.tex" 1792090947 22053 355149d967aaa10c9b2560d9958c158f ""
+  "c:/Users/Queen/Desktop/github/bakalarka/latex/bc_in_progress.tex" 1792090947 22053 355149d967aaa10c9b2560d9958c158f ""
   "photos/PCM5102A_typical_application.png" 1792082423 79560 ba23050e6e63cc36df7268d4db2ac6af ""
   (generated)
   "bc_in_progress.aux"

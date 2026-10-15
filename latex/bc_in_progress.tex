@@ -231,8 +231,28 @@ typické zapojení podle datasheetu
 \end{figure}
 
 Obsahuje integrovanou nábojovou pumpu - vytváří záporné napájecí napětí přestože je čip krmen 3,3 V. DAC má pak soustředěný výstup kolem 0V.
-Ale je zapotřebí přidat dva kondenzátory mezi CAPP a CAPM piny.
+Ale je zapotřebí přidat dva kondenzátory mezi CAPP a CAPM piny (2 a 4, používá se pro přenos náboje), a potom ještě jeden mezi VNEG a CPGND piny (5 a , filtruje vztvořené záporné napětí).
 
+PIN 10 DEMP na GND, vypne se tam de-emphasis.
+PIN 11 FLT na GND, takže je použít normální FIR filtr.
+PIN 12 SCK na GND, takže je použít interní PLL bez externího MCLK
+PIN 16 FMT na GND, jde o standardní I2S formát.
+PIN 17 XSMT, připojen na 3,3V.
+
+
+\section{TPA6111A2}
+- potřeba sériového vazebního kondenzátoru pro každý IN
+
+
+\begin{align*}
+A_V &= -\frac{R_F}{R_{\text{IN}}} = -\frac{10\text{ k}\Omega}{20\text{ k}\Omega} = -0{,}5\text{ V/V}
+\end{align*}
+
+
+\begin{align*}
+f_{c,\text{OUT}} &= \frac{1}{2\pi \cdot R_L \cdot C_{\text{OUT}}} \\
+f_{c,\text{OUT}} &= \frac{1}{2\pi \cdot 32\ \Omega \cdot 470 \cdot 10^{-6}\text{ F}} \approx 10{,}58\text{ Hz}
+\end{align*}
 
 
 \newpage
