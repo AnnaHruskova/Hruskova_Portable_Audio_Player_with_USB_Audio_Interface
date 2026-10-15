@@ -219,6 +219,22 @@ Použití součástky s DET1 a DET2, je to lepší pro baterii (kontrola pomocí
 
 $(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
 
+
+\section{PCM5102A}
+typické zapojení podle datasheetu 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{photos/PCM5102A_typical_application.png}
+    \caption{Typické zapojení PCM510x}
+    \label{fig:PCM5102A_typical_application}
+\end{figure}
+
+Obsahuje integrovanou nábojovou pumpu - vytváří záporné napájecí napětí přestože je čip krmen 3,3 V. DAC má pak soustředěný výstup kolem 0V.
+Ale je zapotřebí přidat dva kondenzátory mezi CAPP a CAPM piny.
+
+
+
 \newpage
 \newpage
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.15)  13 OCT 2026 20:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.15)  15 OCT 2026 18:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -730,23 +730,29 @@ Overfull \hbox (50.99242pt too wide) in paragraph at lines 213--216
 \T1/cmr/m/n/12 karty --> po-dí-vat se co se d¥je uv-ni°, kde to skon-£ilo na chyb¥ https://www.beningo.com/creating-
  []
 
-[2] [3] [4]
-Underfull \hbox (badness 3148) in paragraph at lines 412--413
+[2]
+<photos/PCM5102A_typical_application.png, id=80, 861.2175pt x 367.3725pt>
+File: photos/PCM5102A_typical_application.png Graphic file (type png)
+<use photos/PCM5102A_typical_application.png>
+Package pdftex.def Info: photos/PCM5102A_typical_application.png  used on input line 228.
+(pdftex.def)             Requested size: 352.81552pt x 150.50597pt.
+ [3 <./photos/PCM5102A_typical_application.png>] [4]
+Underfull \hbox (badness 3148) in paragraph at lines 428--429
 []\T1/cmr/m/n/12 Formát zvu-ko-vých dat; hod-nota 1
  []
 
 
-Underfull \hbox (badness 7777) in paragraph at lines 428--429
+Underfull \hbox (badness 7777) in paragraph at lines 444--445
 []\T1/cmr/m/n/12 Po£et bajt· jed-noho vzor-ko-va-cího
  []
 
 
-Overfull \hbox (11.12369pt too wide) in paragraph at lines 398--435
+Overfull \hbox (11.12369pt too wide) in paragraph at lines 414--451
  [][] 
  []
 
 [5]
-Overfull \hbox (11.12369pt too wide) in paragraph at lines 470--487
+Overfull \hbox (11.12369pt too wide) in paragraph at lines 486--503
  [][] 
  []
 
@@ -756,23 +762,23 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `bc_in_progress.out' has not changed.
-(rerunfilecheck)             Checksum: 57306A78B4D0B99B8255F0665F9BE2A0;1445.
+(rerunfilecheck)             Checksum: 12F064282C5670F9F81E24FFECE5F9B8;1529.
 Package logreq Info: Writing requests to 'bc_in_progress.run.xml'.
 \openout1 = `bc_in_progress.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22539 strings out of 467871
- 390145 string characters out of 5418376
- 1264981 words of memory out of 5000000
- 51152 multiletter control sequences out of 15000+600000
+ 22554 strings out of 467871
+ 390629 string characters out of 5418376
+ 1265037 words of memory out of 5000000
+ 51165 multiletter control sequences out of 15000+600000
  641474 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,749b,1654s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Queen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Queen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on bc_in_progress.pdf (6 pages, 189956 bytes).
+Output written on bc_in_progress.pdf (6 pages, 250835 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
