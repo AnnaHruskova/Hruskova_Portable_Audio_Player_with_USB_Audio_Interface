@@ -1,0 +1,14 @@
+[0] Config.pm:329> INFO - This is Biber 2.22
+[0] Config.pm:332> INFO - Logfile is 'bc_in_progress.blg'
+[186] biber-MSWIN64:342> INFO - === 
+[248] Biber.pm:421> INFO - Reading 'bc_in_progress.bcf'
+[430] Biber.pm:1002> INFO - Found 1 citekeys in bib section 0
+[452] Biber.pm:4487> INFO - Processing section 0
+[468] Biber.pm:4680> INFO - Looking for bibtex file 'literatura.bib' for section 0
+[586] bibtex.pm:1713> INFO - LaTeX decoding ...
+[701] bibtex.pm:1519> INFO - Found BibTeX data source 'literatura.bib'
+[854] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'variable = shifted' with 'variable = non-ignorable'
+[854] UCollate.pm:68> INFO - Overriding locale 'cs-CZ' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[854] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'cs-CZ'
+[865] bbl.pm:676> INFO - Writing 'bc_in_progress.bbl' with encoding 'UTF-8'
+[867] bbl.pm:779> INFO - Output to bc_in_progress.bbl
