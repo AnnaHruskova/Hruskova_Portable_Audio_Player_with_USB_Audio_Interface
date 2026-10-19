@@ -214,10 +214,42 @@ konektor pro ladění STM32 pomocí ST-link.
 - pokud se nepovede načítat soubor z SD karty --> podívat se co se děje uvniř, kde to skončilo na chybě
 https://www.beningo.com/creating-an-swd-adapter-for-stm32-development-boards-part-1/
 
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
+
 \section{SD karta}
 Použití součástky s DET1 a DET2, je to lepší pro baterii (kontrola pomocí GPIO pinu)
 
+\begin{table}[ht]
+    \centering
+    \caption{Pinout SD Karty}
+    \label{tab:sd_karta_pinout}
+    \begin{tabular}{lccp{7cm}}
+        \toprule
+        \textbf{Pin} & \textbf{Název} & \textbf{Připojení na STM32} & \textbf{Co dělá}\\
+        \midrule
+        \text{1} & DAT2 & SD\_D2 & Datový bit 2\\
+        \text{2} & DAT3 & SD\_D3 &  \\
+        \text{3} &  &  & \\
+        \text{4} &  &  & \\
+        \text{5} &  &  & \\
+        \text{6} &  &  & \\
+        \text{} &  &  & \\
+        \text{} &  &  & \\
+        \text{} &  &  & \\
+        \text{} &  &  & \\
+        \text{} &  &  & \\
+
+       
+    \end{tabular}
+\end{table}
+
 $(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
+
+
+
 
 % -------------------------------------------------
 % -------------------------------------------------
