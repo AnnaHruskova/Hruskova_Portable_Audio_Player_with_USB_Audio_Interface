@@ -219,6 +219,10 @@ Použití součástky s DET1 a DET2, je to lepší pro baterii (kontrola pomocí
 
 $(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
 
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
 
 \section{PCM5102A}
 typické zapojení podle datasheetu 
@@ -234,11 +238,48 @@ Obsahuje integrovanou nábojovou pumpu - vytváří záporné napájecí napět�
 Ale je zapotřebí přidat dva kondenzátory mezi CAPP a CAPM piny (2 a 4, používá se pro přenos náboje), a potom ještě jeden mezi VNEG a CPGND piny (5 a , filtruje vztvořené záporné napětí).
 
 PIN 10 DEMP na GND, vypne se tam de-emphasis.
+
 PIN 11 FLT na GND, takže je použít normální FIR filtr.
+
 PIN 12 SCK na GND, takže je použít interní PLL bez externího MCLK
+
 PIN 16 FMT na GND, jde o standardní I2S formát.
+
 PIN 17 XSMT, připojen na 3,3V.
 
+
+- Čip využívá Direct Path, nepotřebuje na audio výstupu oddělovací kondenzátory, protože výstup už kmitá kolem nuly (GND). Ale aby toho byl schopen dosáhnout pomocí napětí +3,3 V, musí si vytvořit i záporné napětí -3,3 V (VNEG větev). C22 mezi piny CAPP a CAPM (flying capacitor), má dvě fáze. V první fázi se nabije na 3,3 V, ve druhé fázi se přepne mezi GND a pin VNEG (přelije náboj do záporné větve). - Hodnota převzaná od Texas Instruments.
+
+- C23 mezi VNEG a CPGND je vyhlazovací kondenzátor záporného napětí, udržuje stabilních 3,3 V. 
+
+- C24 - analogový výstupní filtr RC
+
+- C25 - analogový výstupní filtr RC
+
+- C26 - nízká parazitní indukčnost, odvádí ryché proudové špičky - doporučeno TI
+
+- C27 - dobrý na pomalejší změny odběru proudu - doporučeno TI
+
+- C28 (100 nF, potlačuje rychlé rušení vznikající při spínání nábojové pumpy) a C29 (10 uF, stabilizuje 3,3 V napájení) - protože pin CPVDD odebírá proud v pulzech, pulzy mohou vytvoři rušení - hodnoty převzaté z doporučení Texas Instruments.
+
+- C30 a C 31 - stejně jako u C26 a C27.
+
+- C32 - filtrace a stabilizace interního LDO (interního napěťového regulátoru, vytářející cca 1,8 V z 3,3 V pro )
+
+- C33 - filtrace vf 
+
+\subsection{Výstupní analogový filtr RC}
+
+- kondenzátory C24, C25 filtrují vf složky pro každý kanál do země -> filtr dolní propust
+- aby filtr neovlivnil amplitudu/fázi slyšitelných vyšších tónů, volí se mezní frekvence 7 krát až 10 krát vyšší než 20 kHz. Hlavně je zapotřebí vyfiltrovat frekvence v MHz
+- hodnoty rezistory C22 a C23 jsou natolik nízké, že neovlivní úbytek sigálu na vstupní impedanci běžného koncového zesilovače.
+
+\[ f_c = \frac{1}{2\pi R C} = \frac{1}{2\pi \cdot 470 \cdot 2{,}2 \cdot 10^{-9}} \approx 154\,\text{kHz} \]
+
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
 
 \section{TPA6111A2}
 - potřeba sériového vazebního kondenzátoru pro každý IN
