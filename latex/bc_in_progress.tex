@@ -164,7 +164,7 @@ ESD ochrana mezi STM32 a USB-C
     \end{tabular}
 \end{table}
 
-\subsection{BQ24074}
+\subsubsection{BQ24074}
 \begin{table}[ht]
     \centering
     \caption{Pinout BQ24074}
@@ -201,7 +201,7 @@ Dále pak na pin 14 se dá rezistor o odporu 68K, jak je v datasheetu uváděno 
 % --------------------------------------------
 % --------------------------------------------
 % --------------------------------------------
-\subsection{TPS63070}
+\subsubsection{TPS63070}
 Podle doporučení Texas Instruments (strana 17 v datasheetu), pro napětí na výstupu je vhodné vybrat rezistory R1 = 470kO (R12 v práci) a R2 = 150kO (R13 ve schématu práce).
 Pro rezistory R12 a R13 je důležité využít rezistory s tolerancí 1\%.
 
@@ -209,7 +209,8 @@ Podle Texas Instruments je také doporučeno umístit induktor co nejblíže či
 
 Zpětnovazební vodič FB musí být veden mimo spínací uzly L1/L2 (strana 32 datasheetu).
 
-\section{SWD}
+
+\subsection{SWD}
 konektor pro ladění STM32 pomocí ST-link.
 - pokud se nepovede načítat soubor z SD karty --> podívat se co se děje uvniř, kde to skončilo na chybě
 https://www.beningo.com/creating-an-swd-adapter-for-stm32-development-boards-part-1/
@@ -219,8 +220,11 @@ https://www.beningo.com/creating-an-swd-adapter-for-stm32-development-boards-par
 % -------------------------------------------------
 % -------------------------------------------------
 
-\section{SD karta}
+\subsection{SD karta}
 Použití součástky s DET1 a DET2, je to lepší pro baterii (kontrola pomocí GPIO pinu)
+
+$(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
+
 
 \begin{table}[ht]
     \centering
@@ -228,27 +232,35 @@ Použití součástky s DET1 a DET2, je to lepší pro baterii (kontrola pomocí
     \label{tab:sd_karta_pinout}
     \begin{tabular}{lccp{7cm}}
         \toprule
-        \textbf{Pin} & \textbf{Název} & \textbf{Připojení na STM32} & \textbf{Co dělá}\\
+        \textbf{Pin} & \textbf{Název} & \textbf{Připojení} & \textbf{Co dělá}\\
         \midrule
-        \text{1} & DAT2 & SD\_D2 & Datový bit 2\\
-        \text{2} & DAT3 & SD\_D3 &  \\
-        \text{3} &  &  & \\
-        \text{4} &  &  & \\
-        \text{5} &  &  & \\
-        \text{6} &  &  & \\
-        \text{} &  &  & \\
-        \text{} &  &  & \\
-        \text{} &  &  & \\
-        \text{} &  &  & \\
-        \text{} &  &  & \\
-
-       
+        1 & DAT2 & SD\_D2 & Data Line 2\\
+        2 & DAT3 & SD\_D3 & Detekce karty, nebo Data Line 3 \\
+        3 & CMD & SD\_CMD & Command Line = příkazy, Data Input\\
+        4 & VDD & +3,3 V & Napájení karty pomocí 3,3 V\\
+        5 & CLK & SD\_CLK & Hodinový takt z STM32\\
+        6 & VSS & GND & Připojneí na zem\\
+        7 & DAT0 & SD\_D0 & \\
+        8 & DAT1 & SD\_D1 & \\
+        9 & DET\_B & GND & Kontakt detekčního spínače\\
+        10 & DET\_A & SD\_DET & Kontakt detekčního spínače\\
+        SH & SHIELD & GND & Kovové stínění konektoru\\
+       \bottomrule
     \end{tabular}
 \end{table}
 
-$(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
 
+- pomocí DAT0, DAT1, DAT2 a DAT3 se přenášejí data
 
+- CMD je obousměrný řídící vodič, SMT32 posílá příkazy, SD karta odpovídá
+
+- CLK je jednosměrný, z STM32 do SD karty
+
+- Rezistory R16 až R20 jsou pull-up rezistory, hodnota digitálního výstupu může být v logické 1, logické 0, nebo mít vysokou impedanci. Bez rezistoru by se napětí mohlo stát neurčitým. Hodnota 47KOHM při logické nule nezpůsobuje tak velký odběr
+
+- Kondenzátory C13 a C20, oba paralelně připojené mezi 3,3 V a GND. Paměťová karta nemá konstantní spotřebu, C13 pokrývá krátkodobé zvýšení odběru SD karty. C20 blokuje rýchlé vf rušení.
+
+- C20 připojit co nejblíže k napájecímu kontaktu SD karty. C13 velmi blízko C20. Oba keramické, X7R.
 
 
 % -------------------------------------------------
@@ -256,7 +268,7 @@ $(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
 % -------------------------------------------------
 % -------------------------------------------------
 
-\section{PCM5102A}
+\subsection{PCM5102A}
 typické zapojení podle datasheetu 
 
 \begin{figure}[htbp]
@@ -300,7 +312,7 @@ PIN 17 XSMT, připojen na 3,3V.
 
 - C33 - filtrace vf 
 
-\subsection{Výstupní analogový filtr RC}
+\subsubsection{Výstupní analogový filtr RC}
 
 - kondenzátory C24, C25 filtrují vf složky pro každý kanál do země -> filtr dolní propust
 - aby filtr neovlivnil amplitudu/fázi slyšitelných vyšších tónů, volí se mezní frekvence 7 krát až 10 krát vyšší než 20 kHz. Hlavně je zapotřebí vyfiltrovat frekvence v MHz
@@ -313,10 +325,12 @@ PIN 17 XSMT, připojen na 3,3V.
 % -------------------------------------------------
 % -------------------------------------------------
 
-\section{TPA6111A2}
+\subsection{TPA6111A2}
 - potřeba sériového vazebního kondenzátoru pro každý IN
 
+- zesílení se nastavuje externími rezisotry
 
+Pro zesílení střídavého napětí platí
 \begin{align*}
 A_V &= -\frac{R_F}{R_{\text{IN}}} = -\frac{10\text{ k}\Omega}{20\text{ k}\Omega} = -0{,}5\text{ V/V}
 \end{align*}
@@ -327,6 +341,16 @@ f_{c,\text{OUT}} &= \frac{1}{2\pi \cdot R_L \cdot C_{\text{OUT}}} \\
 f_{c,\text{OUT}} &= \frac{1}{2\pi \cdot 32\ \Omega \cdot 470 \cdot 10^{-6}\text{ F}} \approx 10{,}58\text{ Hz}
 \end{align*}
 
+Podle doporučení TI by měl být efektivní odpor na invertujícím vsutpu být přibližně od 5K do 20K, při paralelním zapojneí 2 rezistorů o hodnotě 10K tedy
+\[ R_{\text{eff}} = \frac{R_f R_i}{R_f + R_i} = \frac{10000 \cdot 10000}{10000 + 10000} = 5\,\text{k}\Omega \]
+
+- C35 C36 blokují stejnosměrnou složku (napětí kolem 1,65 V). Použít spíše polarizované kondenzátory.
+
+- C34 potlačení lupnutí při zapnutí
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
+% -------------------------------------------------
 
 \newpage
 \newpage
