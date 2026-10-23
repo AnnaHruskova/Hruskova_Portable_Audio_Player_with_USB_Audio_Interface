@@ -263,6 +263,19 @@ $(https://stm32world.com/wiki/STM32_SD_card_with_FatFs)$
 - C20 připojit co nejblíže k napájecímu kontaktu SD karty. C13 velmi blízko C20. Oba keramické, X7R.
 
 
+\subsubsection{TVS ochrana SD karty}
+ESD/TVS obvody vhodné pro 3,32bitová
+
+- rychlá doba sepnutí - rychlé zachycení tranzientů
+
+- SDMMC komunikace probíhá na vysokých kmitočtech CITACE (20 až 50 MHz), je potřeba aby TVS ČIP měl velmi nízkou parazitní kapacitu, jinak by CLK signál měl zaoblené hrany
+
+- TPD6E05U06RVZR, kapacita 0,47pF
+
+- USBLC6-4SC6, kapacita 0,97pF, ale je nutné použít dva, už mají footprint v KiCADU
+
+
+
 % -------------------------------------------------
 % -------------------------------------------------
 % -------------------------------------------------

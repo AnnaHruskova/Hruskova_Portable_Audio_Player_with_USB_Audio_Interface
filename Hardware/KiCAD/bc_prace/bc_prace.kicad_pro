@@ -429,7 +429,7 @@
         "uuid": "db74a520-5f8d-46f6-9928-2225bcffa33d"
       }
     ],
-    "used_designators": "R1-13,J1-3,L1,#PWR1-28,U1-4,C1-12,Q1",
+    "used_designators": "#FLG1-3,R1-13,R16-27,J1-5,L1-2,#PWR1-71,U1-8,C1-60,Q1",
     "variants": []
   },
   "sheets": [
@@ -444,6 +444,18 @@
     [
       "7e6655f2-2cf2-4ff4-894a-0a7b2398d4df",
       "MCU"
+    ],
+    [
+      "6b2501e0-4cc0-4239-85e3-4ccb2b704f46",
+      "SD card"
+    ],
+    [
+      "3960e25d-453d-445d-a545-65c4e9042836",
+      "DAC"
+    ],
+    [
+      "ed41c912-1b86-46d6-b219-ca3540877d6b",
+      "Headphone Amp"
     ]
   ],
   "text_variables": {},
