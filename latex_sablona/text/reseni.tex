@@ -6,6 +6,159 @@
 
 \subsection{Formáty audio souborů}
 
+\subsubsection{Formát souboru WAV}
+
+Formát WAV (\textit{Waveform Audio File Format}) je založen na kontejnerovém
+formátu RIFF (\textit{Resource Interchange File Format}). Soubor ve formátu
+RIFF se skládá z jednotlivých bloků označovaných jako \textit{chunks}.
+Každý blok je identifikován čtyřznakovým identifikátorem FOURCC
+(\textit{Four-Character Code}).
+
+V případě běžného nekomprimovaného PCM WAV souboru se struktura skládá
+z hlavičky RIFF a následných bloků \texttt{fmt} a \texttt{data}.
+Zde je základní struktura hlavičky RIFF:
+\ref{tab:wav_riff_header}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Struktura hlavičky RIFF souboru WAV}
+    \label{tab:wav_riff_header}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Pole} & \textbf{Offset [B]} & \textbf{Velikost [B]} & \textbf{Význam} \\
+        \midrule
+        \texttt{ChunkID}   & 0 & 4 & ASCII řetězec \texttt{RIFF} \\
+        \texttt{ChunkSize} & 4 & 4 & Velikost souboru bez prvních 8 bajtů \\
+        \texttt{Format}    & 8 & 4 & ASCII řetězec \texttt{WAVE} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Pole \texttt{ChunkID} obsahuje posloupnost znaků \texttt{RIFF}, odpovídající bajtům \texttt{52 49 46 46}. Pole \texttt{ChunkSize}
+udává velikost zbývající části RIFF bloku, tedy v případě základního
+WAV souboru velikost celého souboru zmenšenou o 8 bajtů. Pole
+\texttt{Format} obsahuje identifikátor \texttt{WAVE}.
+
+Za hlavičkou RIFF následuje blok \texttt{fmt}, popisující formát uložených zvukových dat. Jeho struktura pro nekomprimovaný PCM signál je uvedena v tabulce \ref{tab:wav_fmt}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Struktura bloku \texttt{fmt } pro PCM WAV}
+    \label{tab:wav_fmt}
+    \begin{tabular}{lccp{7cm}}
+        \toprule
+        \textbf{Pole} & \textbf{Offset [B]} & \textbf{Velikost [B]} & \textbf{Význam} \\
+        \midrule
+        \texttt{Subchunk1ID}
+        & 12 & 4
+        & ASCII řetězec \texttt{fmt } \\
+
+        \texttt{Subchunk1Size}
+        & 16 & 4
+        & Velikost zbývající části bloku; pro PCM je rovna 16 B \\
+
+        \texttt{AudioFormat}
+        & 20 & 2
+        & Formát zvukových dat; hodnota 1 označuje PCM \\
+
+        \texttt{NumChannels}
+        & 22 & 2
+        & Počet zvukových kanálů; 1 pro mono, 2 pro stereo \\
+
+        \texttt{SampleRate}
+        & 24 & 4
+        & Vzorkovací frekvence v Hz, například 48\,000 Hz \\
+
+        \texttt{ByteRate}
+        & 28 & 4
+        & Počet bajtů za sekundu \\
+
+        \texttt{BlockAlign}
+        & 32 & 2
+        & Počet bajtů jednoho vzorkovacího rámce \\
+
+        \texttt{BitsPerSample}
+        & 34 & 2
+        & Bitová hloubka jednoho vzorku \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Hodnota pole \texttt{ByteRate} je určena vztahem
+
+\begin{equation}
+    \texttt{ByteRate}
+    =
+    \texttt{SampleRate}
+    \cdot
+    \texttt{NumChannels}
+    \cdot
+    \frac{\texttt{BitsPerSample}}{8}.
+\end{equation}
+
+Podobně lze velikost jednoho vzorkovacího rámce vyjádřit jako
+
+\begin{equation}
+    \texttt{BlockAlign}
+    =
+    \texttt{NumChannels}
+    \cdot
+    \frac{\texttt{BitsPerSample}}{8}.
+\end{equation}
+
+Vzorkovací rámec zde představuje vzorky všech kanálů náležející ke
+stejnému okamžiku vzorkování. Například u 16bitového stereofonního
+signálu má jeden rámec velikost 4 B.
+
+Za blokem \texttt{fmt } se v základní podobě PCM WAV souboru nachází
+blok \texttt{data}, který obsahuje vlastní zvuková data.
+
+\begin{table}[ht]
+    \centering
+    \caption{Struktura bloku \texttt{data}}
+    \label{tab:wav_data}
+    \begin{tabular}{lccp{7cm}}
+        \toprule
+        \textbf{Pole} & \textbf{Offset [B]} & \textbf{Velikost [B]} & \textbf{Význam} \\
+        \midrule
+        \texttt{Subchunk2ID}
+        & 36 & 4
+        & ASCII řetězec \texttt{data} \\
+
+        \texttt{Subchunk2Size}
+        & 40 & 4
+        & Počet bajtů zvukových dat \\
+
+        \texttt{Data}
+        & 44 & proměnná
+        & Jednotlivé vzorky zvukového signálu \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Velikost datové části lze pro PCM signál vyjádřit jako
+
+\begin{equation}
+    \texttt{Subchunk2Size}
+    =
+    N_\mathrm{samples}
+    \cdot
+    \texttt{NumChannels}
+    \cdot
+    \frac{\texttt{BitsPerSample}}{8},
+\end{equation}
+
+kde $N_\mathrm{samples}$ představuje počet vzorků jednoho kanálu.
+
+Vícebajtové číselné hodnoty jsou ve standardním WAV souboru ukládány v pořadí \textit{little-endian}. Například 32bitová hodnota \texttt{0x12345678} je tedy v souboru uložena jako posloupnost bajtů \texttt{78 56 34 12}. Čtyřznakové identifikátory, například \texttt{RIFF}, \texttt{WAVE}, \texttt{fmt } nebo \texttt{data}, jsou naproti tomu ukládány přímo jako posloupnost ASCII znaků\cite{wav_internet_archive}.
+
+\subsubsection{Načítání WAV do STM32}
+https://www.phippselectronics.com/how-to-play-a-wav-file-on-stm32/
+% --------------------------------------------------
+% --------------------------------------------------
+
+
+
 \subsection{D/A převodníky}
 Princip Delta Sigma modulace
 
@@ -27,7 +180,97 @@ Proč zrovna to
 Dostatek RAM a FLASH paměti
 
 \subsection{Audio řetězec}
-Zdůvodnění výběru DAC PCM5120A a TPA6111A2D
+\subsubsection{D/A převodník PCM5102A}
+typické zapojení podle datasheetu 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{obrazky/PCM5102A_typical_application.png}
+    \caption{Typické zapojení PCM510x}
+    \label{fig:PCM5102A_typical_application}
+\end{figure}
+
+Obsahuje integrovanou nábojovou pumpu - vytváří záporné napájecí napětí přestože je čip krmen 3,3 V. DAC má pak soustředěný výstup kolem 0V.
+Ale je zapotřebí přidat dva kondenzátory mezi CAPP a CAPM piny (2 a 4, používá se pro přenos náboje), a potom ještě jeden mezi VNEG a CPGND piny (5 a , filtruje vztvořené záporné napětí).
+
+PIN 10 DEMP na GND, vypne se tam de-emphasis.
+
+PIN 11 FLT na GND, takže je použít normální FIR filtr.
+
+PIN 12 SCK na GND, takže je použít interní PLL bez externího MCLK
+
+PIN 16 FMT na GND, jde o standardní I2S formát.
+
+PIN 17 XSMT, připojen na 3,3V.
+
+
+- Čip využívá Direct Path, nepotřebuje na audio výstupu oddělovací kondenzátory, protože výstup už kmitá kolem nuly (GND). Ale aby toho byl schopen dosáhnout pomocí napětí +3,3 V, musí si vytvořit i záporné napětí -3,3 V (VNEG větev). C22 mezi piny CAPP a CAPM (flying capacitor), má dvě fáze. V první fázi se nabije na 3,3 V, ve druhé fázi se přepne mezi GND a pin VNEG (přelije náboj do záporné větve). - Hodnota převzaná od Texas Instruments.
+
+- C23 mezi VNEG a CPGND je vyhlazovací kondenzátor záporného napětí, udržuje stabilních 3,3 V. 
+
+- C24 - analogový výstupní filtr RC
+
+- C25 - analogový výstupní filtr RC
+
+- C26 - nízká parazitní indukčnost, odvádí ryché proudové špičky - doporučeno TI
+
+- C27 - dobrý na pomalejší změny odběru proudu - doporučeno TI
+
+- C28 (100 nF, potlačuje rychlé rušení vznikající při spínání nábojové pumpy) a C29 (10 uF, stabilizuje 3,3 V napájení) - protože pin CPVDD odebírá proud v pulzech, pulzy mohou vytvoři rušení - hodnoty převzaté z doporučení Texas Instruments.
+
+- C30 a C 31 - stejně jako u C26 a C27.
+
+- C32 - filtrace a stabilizace interního LDO (interního napěťového regulátoru, vytářející cca 1,8 V z 3,3 V pro )
+
+- C33 - filtrace vf 
+
+\subsubsection{Výstupní analogový filtr RC}
+
+- kondenzátory C24, C25 filtrují vf složky pro každý kanál do země -> filtr dolní propust
+- aby filtr neovlivnil amplitudu/fázi slyšitelných vyšších tónů, volí se mezní frekvence 7 krát až 10 krát vyšší než 20 kHz. Hlavně je zapotřebí vyfiltrovat frekvence v MHz
+- hodnoty rezistory C22 a C23 jsou natolik nízké, že neovlivní úbytek sigálu na vstupní impedanci běžného koncového zesilovače.
+
+$ f_c = \frac{1}{2\pi R C} = \frac{1}{2\pi \cdot 470 \cdot 2{,}2 \cdot 10^{-9}} \approx 154 kHz$
+
+\subsubsection{Sluchátkový zesilovač TPA6111A2D}
+Zesílení analogového stereofonního signálu z D/A převodníku PCM5102A je docíleno pomocí integrovaného sluchátkového zesilovače TPA6111A2D od Texas Instruments. Obvod obsahuje dva nezávislé zesilovací kanály v invertujícím zapojení, umožňuje provoz při 3,3 V. 
+
+Zesílení jednotlivých kanálů je určeno poměrem zpětnovazebního rezistoru $R_F$ a vstupního rezistoru $R_I$, platí vztah 
+$A_v=-\frac{R_F}{R_I}$, kde pro $R_F$ i $R_I$ jsou zvoleny hodnoty 20 kohm, tedy $A_v=-\frac{20 komh}{20 kohm}=-1$. Napěťové zesílení se tedy rovná jedné, rovno zesílení 0 dB, nedochází k změně amplitudy. Záporné znaménko zde vyjadřuje fázovou inverzi o 180 stupňů. Zvolená konfigurace odpovídá doporučenému zapojení uvedené v technické dokumentaci dané součástky.
+
+Ekvivalentní odpor působící na invertující vstup zesilovače je dán paralelní kombinací $R_F$ a $R_I$, $R_{\mathrm{eq}}=\frac{R_F R_I}{R_F+R_I}
+=10,\mathrm{k}\Omega$, tato hodnota je v rámci doporučení výrobcem, tedy od 5 kOhm do 20 kOhm.
+
+Při návrhu bylo zohledněno rozdílné napěťové rozmezí výstupních signálů D/A převodníku a sluchátkového zesilovače. Převodník PCM5102A při plném vybuzení dosahuje výstupní úrovně 2,1 V RMS (5,94 V špička špička, mnohem více, než zesilovač dokáže reprodukovat bez zkreslení). Regulace hlasitosti bude proto řícena digitálním útlumem PCM vzorků v mikrokontroléru STM32. Maximální úroveň bude stanovena s ohledem na výstupní napěťový rozkmit zesilovače, s ohledem na impedanci připojených sluchátek\dots
+
+Ostatní komponenty ve schématu okolo TPA6111A2D
+
+Vstupní vazební kondenzátory C38 a C39 (1 µF), sériově zapojeny mezi výstupy D/A převodníku a vstupy zesilovače, oddělující stejnosměrné složky signálu. Společně se vstupními rezistory R24 a R26 vytváření RC filtr horní propusti, určující dolní mezní kmitočet přenosové charakteristiky = 8 Hz.
+
+\begin{equation}
+    f_c = \frac{1}{2\pi R_I C_I}
+    = \frac{1}{2\pi \cdot 20 \times 10^3 \cdot 1 \times 10^{-6}}
+    \approx 7{,}96\,\mathrm{Hz}
+    \label{eq:mezni_frekvence_vstup}
+\end{equation}
+
+Kondenzátor C34 o kapacitě 1 uF, ovlivňuje časový průběh náběhu interního předpětí, čímž omezuje vznik nechtěných impulzů při zapnutí zesilovače.
+
+Blokovací kondenzátory C37 (potlačující vysokofrekvenční rušení a rychlé napěťové přechody), C40, zlepšují stabilitu napájení a omezují nežádoucí vlivy napájecího rušení na výstupní audio signál.
+\begin{equation}
+    X_C = \frac{1}{2\pi f C}
+    \label{eq:kapacitni_reaktance}
+\end{equation}
+S rostoucí frekvencí klesá kapacitní reaktance, kondenzátor představuje pro vf složky nízkoimpedanční cestu ke GND. 
+
+Výstupní vazební kondenzátory C17, C18 polarizované elektrolytické, zabraňují průchodu stejnosměrné složky do připojených sluchátek. Zvolená kapacita 470 µF pro sluchátka o impedanci 32 Ohm odpovídá dolní mezní frekvenci 10,58 Hz, podle 
+\begin{equation}
+    f_c = \frac{1}{2\pi R_L C_{\mathrm{out}}}
+    = \frac{1}{2\pi \cdot 32 \cdot 470 \times 10^{-6}}
+    \approx 10{,}58\,\mathrm{Hz}
+    \label{eq:mezni_frekvence_vystup}
+\end{equation}
+
 
 \subsection{Periferie}
 SD karta
