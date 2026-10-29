@@ -7,6 +7,16 @@
 	(lib_symbols)
 	(wire
 		(pts
+			(xy 74.93 57.15) (xy 119.38 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fece199-f1b9-48f7-90ad-943892b7699c")
+	)
+	(wire
+		(pts
 			(xy 101.6 149.86) (xy 194.31 149.86)
 		)
 		(stroke
@@ -14,6 +24,26 @@
 			(type default)
 		)
 		(uuid "1311bb33-d66f-4dc5-a8c0-4da515a5a79a")
+	)
+	(wire
+		(pts
+			(xy 163.83 85.09) (xy 194.31 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20aa3e5e-9dd2-4426-ac24-9e7e3b4087da")
+	)
+	(wire
+		(pts
+			(xy 74.93 64.77) (xy 119.38 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22bab11c-a6ba-4368-9f74-20094451b7dd")
 	)
 	(wire
 		(pts
@@ -34,6 +64,26 @@
 			(type default)
 		)
 		(uuid "389f2cb8-4949-4fa0-abc0-24844986e229")
+	)
+	(wire
+		(pts
+			(xy 74.93 49.53) (xy 119.38 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a60d80c-bd8d-4d97-a317-0bad516843c9")
+	)
+	(wire
+		(pts
+			(xy 163.83 82.55) (xy 194.31 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ba5d790-edc0-41c3-8293-728f9b55f92f")
 	)
 	(wire
 		(pts
@@ -67,6 +117,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 54.61) (xy 119.38 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "553499ef-2e4d-40cb-a0b8-bc9e49632598")
+	)
+	(wire
+		(pts
 			(xy 101.6 125.73) (xy 101.6 149.86)
 		)
 		(stroke
@@ -74,6 +134,26 @@
 			(type default)
 		)
 		(uuid "5778f282-1258-4363-b47f-9532422bcb45")
+	)
+	(wire
+		(pts
+			(xy 74.93 115.57) (xy 119.38 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57cf620b-d83c-4a39-a5a8-c81e91552127")
+	)
+	(wire
+		(pts
+			(xy 163.83 60.96) (xy 194.31 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60dff734-7d8e-4f37-b1f4-95192c2cea66")
 	)
 	(wire
 		(pts
@@ -97,6 +177,16 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 58.42) (xy 194.31 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c096ad2-ab0b-4849-9242-a7abfbd2847a")
+	)
+	(wire
+		(pts
 			(xy 163.83 133.35) (xy 194.31 133.35)
 		)
 		(stroke
@@ -117,6 +207,16 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 66.04) (xy 194.31 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c481230-2272-4040-9111-e17997e8f986")
+	)
+	(wire
+		(pts
 			(xy 74.93 40.64) (xy 119.38 40.64)
 		)
 		(stroke
@@ -124,6 +224,16 @@
 			(type default)
 		)
 		(uuid "9e4c8fe5-e051-4fc2-93d6-41126988e15a")
+	)
+	(wire
+		(pts
+			(xy 74.93 62.23) (xy 119.38 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9213ec1-7953-4e1b-a631-7721e34929de")
 	)
 	(wire
 		(pts
@@ -147,6 +257,26 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 63.5) (xy 194.31 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abc0d9bb-5466-44a9-ae54-c49b7a1d78e2")
+	)
+	(wire
+		(pts
+			(xy 163.83 87.63) (xy 194.31 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae472f17-69d0-45f6-bee9-971c6fbd0049")
+	)
+	(wire
+		(pts
 			(xy 74.93 128.27) (xy 99.06 128.27)
 		)
 		(stroke
@@ -157,13 +287,23 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 49.53) (xy 119.38 49.53)
+			(xy 163.83 80.01) (xy 194.31 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b2b349f5-77a2-4f61-be48-2c054ab17012")
+		(uuid "b5e4b54f-4a93-44bc-a19e-4eb47b511cf0")
+	)
+	(wire
+		(pts
+			(xy 163.83 68.58) (xy 194.31 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb46b048-1cf4-47d1-baa0-a4b0ebb3a50a")
 	)
 	(wire
 		(pts
@@ -197,6 +337,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 52.07) (xy 119.38 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0e3a2b3-3ebf-4d34-9999-3ee07d802534")
+	)
+	(wire
+		(pts
 			(xy 74.93 81.28) (xy 119.38 81.28)
 		)
 		(stroke
@@ -204,6 +354,26 @@
 			(type default)
 		)
 		(uuid "e3b96ee6-8889-4e3d-abcb-612c3da1fa83")
+	)
+	(wire
+		(pts
+			(xy 74.93 59.69) (xy 119.38 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed00d79e-372e-49d2-bbb0-fbc03cbfcf74")
+	)
+	(wire
+		(pts
+			(xy 163.83 77.47) (xy 194.31 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2d0437e-eda6-453f-8a15-5adf52809914")
 	)
 	(sheet
 		(at 28.575 111.125)
@@ -293,6 +463,16 @@
 				(justify right)
 			)
 		)
+		(pin "DAC_XSMT" input
+			(at 74.93 115.57 0)
+			(uuid "a01a2517-011f-4fcd-8884-10f3a8789733")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
@@ -303,7 +483,7 @@
 	)
 	(sheet
 		(at 27.94 36.83)
-		(size 46.99 27.94)
+		(size 46.99 31.75)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -329,7 +509,7 @@
 			)
 		)
 		(property "Sheetfile" "power.kicad_sch"
-			(at 27.94 65.3546 0)
+			(at 27.94 69.1646 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -359,18 +539,8 @@
 				(justify right)
 			)
 		)
-		(pin "BAT_TEMP" input
-			(at 74.93 52.07 0)
-			(uuid "871a2399-df41-46bb-9e19-9a513d4e724c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "CHG_EN1" input
-			(at 74.93 57.15 0)
+			(at 74.93 59.69 0)
 			(uuid "6c85de2e-5250-47c8-b645-6acad16da368")
 			(effects
 				(font
@@ -379,8 +549,8 @@
 				(justify right)
 			)
 		)
-		(pin "CHG_PGOOD" input
-			(at 74.93 59.69 0)
+		(pin "CHG_PGOOD" output
+			(at 74.93 62.23 0)
 			(uuid "7e68becf-a873-4079-839e-550de87c554a")
 			(effects
 				(font
@@ -389,8 +559,8 @@
 				(justify right)
 			)
 		)
-		(pin "CHG_STATUS" input
-			(at 74.93 62.23 0)
+		(pin "CHG_STATUS" output
+			(at 74.93 64.77 0)
 			(uuid "3744a844-c0a2-4533-b044-df2767b5a55a")
 			(effects
 				(font
@@ -400,7 +570,7 @@
 			)
 		)
 		(pin "CHG_DISABLE" input
-			(at 74.93 54.61 0)
+			(at 74.93 57.15 0)
 			(uuid "9735f28b-da74-4f71-b87e-544009222f78")
 			(effects
 				(font
@@ -410,8 +580,28 @@
 			)
 		)
 		(pin "LTC_KILL" input
-			(at 74.93 49.53 0)
+			(at 74.93 54.61 0)
 			(uuid "665800eb-c99c-4a29-900d-b24f60512332")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "LTC_INT" output
+			(at 74.93 52.07 0)
+			(uuid "30f7f743-0c75-493c-a081-ccdaf2a4e035")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VBUS_DET" input
+			(at 74.93 49.53 0)
+			(uuid "851dbbd8-1095-402d-8bb9-95dad23dab8b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -495,7 +685,7 @@
 				(justify right)
 			)
 		)
-		(pin "SD_D1" input
+		(pin "SD_D1" bidirectional
 			(at 74.93 86.36 0)
 			(uuid "e33ab02c-033a-430e-a6e3-c25ce3df7880")
 			(effects
@@ -539,6 +729,152 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
 					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 194.31 52.07)
+		(size 43.18 46.99)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "715d73c4-3868-4196-9a7d-17b055dfad82")
+		(property "Sheetname" "User Interface"
+			(at 194.31 51.3584 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "user_interface.kicad_sch"
+			(at 194.31 99.6446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "OLED_CLK" input
+			(at 194.31 58.42 180)
+			(uuid "930a66e8-0d6e-4fc6-bbc6-f639083e1400")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "OLED_CS" input
+			(at 194.31 68.58 180)
+			(uuid "25c62697-6f65-47ce-9c86-a3bace32734e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "OLED_DC" input
+			(at 194.31 66.04 180)
+			(uuid "1760936a-0385-4ef4-aec1-19872908248e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "OLED_MOSI" input
+			(at 194.31 60.96 180)
+			(uuid "4abfc9a0-71d7-4eef-8bcf-d9bf914fadfd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "OLED_RST" input
+			(at 194.31 63.5 180)
+			(uuid "b09a542a-ad93-4259-b713-f425c76dc89f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BTN_NEXT" input
+			(at 194.31 80.01 180)
+			(uuid "158be84d-62ed-4616-9f6b-c1cf4d86ea16")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BTN_PLAY" input
+			(at 194.31 77.47 180)
+			(uuid "71f85269-7721-47a5-8559-611b84522b87")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BTN_PREV" input
+			(at 194.31 82.55 180)
+			(uuid "c339f621-d98f-4ace-b97a-aec39dc03998")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BTN_VOL_DOWN" input
+			(at 194.31 87.63 180)
+			(uuid "ac606090-030b-442a-ba50-daa2d272d269")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BTN_VOL_UP" input
+			(at 194.31 85.09 180)
+			(uuid "6d0c8776-45a9-4089-8396-fde5464983ee")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
+					(page "7")
 				)
 			)
 		)
@@ -711,9 +1047,179 @@
 				(justify right)
 			)
 		)
-		(pin "LTC_KILL" input
-			(at 119.38 49.53 180)
+		(pin "LTC_KILL" output
+			(at 119.38 54.61 180)
 			(uuid "c6d72214-7009-4867-855a-e27dd58cd611")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CHG_DISABLE" output
+			(at 119.38 57.15 180)
+			(uuid "26b4231c-bddd-4a25-89d4-0a17566aee3b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CHG_EN1" output
+			(at 119.38 59.69 180)
+			(uuid "3d9f9081-9a0e-4fd7-8230-48bceed0adc5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CHG_PGOOD" input
+			(at 119.38 62.23 180)
+			(uuid "27c96c11-361b-4c6c-8677-b7288dc96882")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CHG_STATUS" input
+			(at 119.38 64.77 180)
+			(uuid "bc3cc803-987c-480a-baba-8b88f88dca18")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "LTC_INT" input
+			(at 119.38 52.07 180)
+			(uuid "1b651d63-996d-4131-9d18-db9d555d4bdd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "OLED_CLK" input
+			(at 163.83 58.42 0)
+			(uuid "43c6c1ed-67b3-4a4e-8114-29c19bb50666")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "OLED_CS" input
+			(at 163.83 68.58 0)
+			(uuid "f1debada-11ac-459a-98dd-d8bd126f0b3c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "OLED_DC" input
+			(at 163.83 66.04 0)
+			(uuid "55daaa2e-c055-4226-a529-f2db9cd610e7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "OLED_MOSI" input
+			(at 163.83 60.96 0)
+			(uuid "0227d588-4237-4121-a42e-237a0acd1a77")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "OLED_RST" input
+			(at 163.83 63.5 0)
+			(uuid "f7661de5-649d-4979-878f-c79af1aebf49")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BTN_NEXT" output
+			(at 163.83 80.01 0)
+			(uuid "34bf16da-d8fb-4a8b-b05c-6b00e0f8477e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BTN_PLAY" output
+			(at 163.83 77.47 0)
+			(uuid "ce7dccde-8380-4257-ad43-e1abf889b29d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BTN_PREV" output
+			(at 163.83 82.55 0)
+			(uuid "33658213-1349-4d8c-a947-18b2dc50fc86")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BTN_VOL_DOWN" output
+			(at 163.83 87.63 0)
+			(uuid "ceb48a4c-0899-4817-9526-81156450ee78")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BTN_VOL_UP" output
+			(at 163.83 85.09 0)
+			(uuid "d3a3e89d-5fa9-495e-bde0-f2b9a520b8b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VBUS_DET" input
+			(at 119.38 49.53 180)
+			(uuid "3535c8f1-fa73-41ac-9696-76e5e63b659c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DAC_XSMT" input
+			(at 119.38 115.57 180)
+			(uuid "1962bd07-b39b-4f1b-8b4d-04cc3d9ca755")
 			(effects
 				(font
 					(size 1.27 1.27)

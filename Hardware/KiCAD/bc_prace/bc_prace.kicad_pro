@@ -661,7 +661,7 @@
         "uuid": "db74a520-5f8d-46f6-9928-2225bcffa33d"
       }
     ],
-    "used_designators": "R1-13,R16-30,#FLG1-4,J1-5,L1-2,#PWR1-73,U1-10,C1-61,Q1,SW1",
+    "used_designators": "R1-13,R16-35,#FLG1-4,J1-6,L1-2,#PWR1-79,U1-10,C1-63,Q1,SW1-6,D1",
     "variants": []
   },
   "sheets": [
@@ -688,6 +688,10 @@
     [
       "ed41c912-1b86-46d6-b219-ca3540877d6b",
       "Headphone Amp"
+    ],
+    [
+      "715d73c4-3868-4196-9a7d-17b055dfad82",
+      "User Interface"
     ]
   ],
   "text_variables": {},
