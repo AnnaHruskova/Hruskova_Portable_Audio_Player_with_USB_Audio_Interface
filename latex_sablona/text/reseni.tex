@@ -1,6 +1,32 @@
-\chapter{Strunktura práce}
+\chapter{Digitální zpracování a reprodukce zvuku v embedded systémech}
 
-\section{Teorie}
+\section{A/D a D/A převodníky}
+
+Jakmile je docíleno převodu zvukové energie na energii elektrickou, dalším krokem může být konverze z analogové roviny do digitální. Pro opačný přechod se využívá \ac{DAC}. Audio Codec je poté označení pro ADC a DAC hardwarové komponenty dostupné v jednom pouzdře. Při rekonstrukci signálu z digitální do analogové podoby je důležité, aby signál splňoval Nyquistovu-Shannonovu vzorkovací podmínku. Ta hovoří o tom, že nejvyšší obsažená frekvence v původním pásmově omezeném signálu vynásobená dvěma by měla být menší než vzorkovací frekvence, protože ve spektru navzorkovaného signálu se kromě původního spektra nacházejí i jeho kopie posunuté o celočíselné násobky vzorkovací frekvence.
+Lze vyjádřit vztahem
+\begin{equation}
+    f_s > 2f_{\max},
+\end{equation}
+kde $f_s$ je vzorkovací frekvence a $f_{\max}$ je nejvyšší frekvence původního signálu.
+Při dodržení Nyquist-Shannonova teorému se kopie nepřekrývají, lze tak spektrum oddělit rekonstrukčním filtrem dolní propust a ze vzorků původní signál obnovit. Při nedodržení vzniká aliasing, jenž ani D/A převod ani rekonstrukční filtr nemohou odstranit \cite[s.~96--99]{smekal2023}. 
+Filtry dolní propusti nejsou ideální a takřka žádné praktické využití nebude vzorkovat přesně na dvojnásobku, proto je jedna z často využívaných vzorkovacích frekvencí pro reprodukci hudby 44,1 kHz a ne 40 kHz \cite{katz2005embedded}.
+
+\section{Delta-sigma D/A převodníky}
+- Převzorkování
+
+- delta sigma modulace, tvarování kvantizačního šumu 
+
+- d/A převod a výstupní dolní propust
+
+\section{PCM}
+
+
+
+Nejjedodušší digitální reprezentací signálu je \ac{PCM}; pro každou periodu vzorkování je analogová amplituda zakódována s příslušnou digitální úrovní. 
+
+
+
+
 
 \subsection{Digitalizace zvuku}
 
