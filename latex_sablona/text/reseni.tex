@@ -12,6 +12,166 @@ Při dodržení Nyquist-Shannonova teorému se kopie nepřekrývají, lze tak sp
 Filtry dolní propusti nejsou ideální a takřka žádné praktické využití nebude vzorkovat přesně na dvojnásobku, proto je jedna z často využívaných vzorkovacích frekvencí pro reprodukci hudby 44,1 kHz a ne 40 kHz \cite{katz2005embedded}.
 
 \section{Delta-sigma D/A převodníky}
+
+DAC převodníky lze rozdělit na dvě kategorie: ty pracující na Nyquistově vzorkovací frekvenci a převodníky s převzorkováním. Převodníky z první kategorie pracují s poměrem 1:1 vstupní ku výstupním vzorkům a každý vzorek je samostatně zpracován, bez ohledu na předchozí vzorky; jsou bezpamětné. 
+Přivedením vstupního digitálního slova s bity $b_1$ až $b_N$ vede tedy na výstup
+\begin{equation}
+    U_{\mathrm{out}} = U_{\mathrm{ref}} \left( b_1 2^{-1} + b_2 2^{-2} + \cdots + b_N 2^{-N}, \right)
+\end{equation}
+kde $U_{\mathrm{ref}}$ je referenční napětí nezávislé na předchozím slově. Pro tento typ převodníků může být vzorkovací frekvence $f_{\mathrm{vz}}$ až na spodní hranici splnění Nyquistova kritéria. 
+Technologický rozptyl parametrů (souběh, anglicky \textit{component matching, match\-ing ac\-cu\-ra\-cy}, vyjadřující jak přesně jsou si podobné součástky stejného typu a jmenovité hodnoty) je v praxi omezen asi na cca 0,02 \%. Tím pádem je ovlivněn i \ac{ENOB} na přibližně 12, ale mnoho audio zařízení vyžadují až 18 či 20 bitů. Takové Nyquistovy převodníky vyžadují více času, jsou pro zpracování audio signálu příliš pomalé.
+
+Převzorkovací převodníky jsou schopny dosáhnout až 20 ENOB při vyšších rychlostech, využívají vzorkovací frekvenci 8krát až 512krát vyšší než je Nyquistova frekvence a výstup generují na základě předchozích hodnot (obsahují paměťové prvky). 
+
+%----------------
+%----------------
+%----------------
+Příkladem využití paměťových prvků je modulátor $\Delta\Sigma$ prvního řádu na obr.~\ref{fig:schema_delta_sigma} v základu tvořící akumulátor, dvouúrovňový kvantizátor a záporná zpětná vazba. Akumulátor uchovává svůj předchozí stav a přičítá k němu rozdíl mezi aktuálním vstupem a zpožděným výstupem modulátoru. Činnost uvedeného diskrétního modelu popisují vztahy
+\begin{equation}
+    \begin{aligned}
+        y[n] &= y[n-1] + u[n] - v[n-1], \\
+        v[n] &= Q\bigl(y[n]\bigr),
+    \end{aligned}
+    \label{eq:ds_model}
+\end{equation}
+kde $u[n]$ označuje vstupní signál, $y[n]$ stav
+akumulátoru a současně vstup kvantizátoru,
+$v[n]$ výstupní posloupnost a $Q(\cdot)$ kvantizační
+funkci. Blok $z^{-1}$ představuje zpoždění
+o jeden vzorek.
+
+Zbytkovou chybu kvantování definujeme jako
+\begin{equation}
+    e[n] = y[n] - v[n].
+    \label{eq:ds_chyba}
+\end{equation}
+Dosazením vztahu~\eqref{eq:ds_chyba}
+do rovnic~\eqref{eq:ds_model} získáme
+\begin{equation}
+    v[n] = u[n] + e[n-1] - e[n].
+    \label{eq:ds_vystup}
+\end{equation}
+Výstupní posloupnost tedy obsahuje vstupní signál
+a diferenci kvantizační chyby. Tato diference
+potlačuje nízkofrekvenční složky chyby, což představuje
+princip jejího tvarování.
+
+Odhad vstupního signálu vzniká digitální filtrací
+výstupní posloupnosti. Význam průměrování lze ukázat
+pro konstantní vstup $u[n]=u$. Průměr prvních $N$
+výstupních vzorků je podle vztahu~\eqref{eq:ds_vystup}
+roven
+\begin{equation}
+    \hat{u}_N
+    = \frac{1}{N}\sum_{n=1}^{N} v[n]
+    = u + \frac{e[0]-e[N]}{N}.
+    \label{eq:ds_prumer}
+\end{equation}
+Při součtu se mezilehlé chybové příspěvky vzájemně
+vyruší a zůstává pouze rozdíl počáteční a koncové
+chyby. Pokud chyba zůstává ohraničená, odhad
+$\hat{u}_N$ s rostoucím počtem vzorků konverguje
+k hodnotě vstupu $u$. Hodnotu vstupního signálu
+tak lze odhadnout průměrováním posloupnosti,
+jejíž jednotlivé vzorky nabývají pouze dvou hodnot.
+
+U časově proměnného vstupu je nutné volit vlastnosti
+digitálního filtru s ohledem na požadovanou šířku
+pásma signálu. Filtr klouzavého průměru na
+obr.~\ref{fig:schema_delta_sigma} představuje jednoduchou
+realizaci této výstupní filtrace.
+
+%----------------
+%----------------
+%----------------
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        scale=0.85,
+        transform shape,
+        >=Latex,
+        thick,
+        block/.style={
+            draw,
+            minimum width=16mm,
+            minimum height=16mm
+        },
+        sum/.style={
+            draw,
+            circle,
+            minimum size=5mm,
+            inner sep=0pt
+        },
+        dot/.style={
+            circle,
+            fill,
+            minimum size=3pt,
+            inner sep=0pt
+        }
+    ]
+        % Součtový uzel
+        \node[sum] (s) at (0,0) {$+$};
+
+        % Akumulátor
+        \node[block, minimum width=24mm]
+            (acc) at (2.4,0)
+            {$\displaystyle\frac{1}{1-z^{-1}}$};
+
+        % Kvantizátor
+        \node[block] (q) at (5.8,0) {};
+
+        % Výstupní odbočka
+        \node[dot] (v) at (7.4,0) {};
+
+        % Filtr klouzavého průměru
+        \node[
+            block,
+            minimum width=30mm,
+            align=center,
+            font=\itshape
+        ] (filter) at (9.9,0)
+            {Moving\\Average\\Filter};
+
+        % Zpoždění ve zpětné vazbě
+        \node[
+            draw,
+            minimum width=12mm,
+            minimum height=7mm
+        ] (delay) at (2.4,-2.2) {$z^{-1}$};
+
+        % Hlavní signálová cesta
+        \draw[->] (-1.4,0) node[left] {$u$} -- (s.west);
+        \draw[->] (s.east) -- (acc.west);
+        \draw (acc.east) -- (q.west);
+        \draw (q.east) -- (v);
+        \draw[->] (v) -- (filter.west)
+            node[midway, above] {$v$};
+        \draw[->] (filter.east) -- ++(0.9,0)
+            node[right] {$\hat{u}$};
+
+        % Záporná zpětná vazba
+        \draw (v) |- (delay.east);
+        \draw[->] (delay.west) -| (s.south);
+        \node at (0.48,-0.48) {$-$};
+
+        % Symbol kvantizátoru
+        \begin{scope}[shift={(q.center)}]
+            \draw (-0.4,-0.6) -- (0,-0.6)
+                -- (0,0.6) -- (0.4,0.6);
+            \draw (-0.2,0) -- (0.2,0);
+        \end{scope}
+    \end{tikzpicture}
+
+    \caption{Blokové schéma modulátoru $\Delta\Sigma$
+        prvního řádu s filtrem klouzavého průměru.}
+    \label{fig:schema_delta_sigma}
+\end{figure}
+
+
+
+
+\newpage
 - Převzorkování
 
 - delta sigma modulace, tvarování kvantizačního šumu 

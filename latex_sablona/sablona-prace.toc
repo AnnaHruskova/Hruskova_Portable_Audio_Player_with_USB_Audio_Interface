@@ -6,29 +6,29 @@
 \contentsline {chapter}{\numberline {1}Digitální zpracování a reprodukce zvuku v embedded systémech}{25}{chapter.10}%
 \contentsline {section}{\numberline {1.1}A/D a D/A převodníky}{25}{section.11}%
 \contentsline {section}{\numberline {1.2}Delta-sigma D/A převodníky}{25}{section.13}%
-\contentsline {section}{\numberline {1.3}PCM}{25}{section.14}%
-\contentsline {subsection}{\numberline {1.3.1}Digitalizace zvuku}{26}{subsection.15}%
-\contentsline {subsection}{\numberline {1.3.2}Formáty audio souborů}{26}{subsection.16}%
-\contentsline {subsubsection}{Formát souboru WAV}{26}{section*.17}%
-\contentsline {subsubsection}{Načítání WAV do STM32}{27}{section*.24}%
-\contentsline {subsection}{\numberline {1.3.3}D/A převodníky}{28}{subsection.25}%
-\contentsline {section}{\numberline {1.4}Koncepce návrhu}{28}{section.26}%
-\contentsline {subsection}{\numberline {1.4.1}Mikrokontrolér a práce v CubeIDE}{28}{subsection.27}%
-\contentsline {subsection}{\numberline {1.4.2}Audio řetězec}{28}{subsection.28}%
-\contentsline {subsubsection}{D/A převodník PCM5102A}{28}{section*.29}%
-\contentsline {subsubsection}{Výstupní analogový filtr RC}{29}{section*.31}%
-\contentsline {subsubsection}{Sluchátkový zesilovač TPA6111A2D}{29}{section*.32}%
-\contentsline {subsection}{\numberline {1.4.3}Periferie}{31}{subsection.36}%
-\contentsline {subsection}{\numberline {1.4.4}Napájení}{31}{subsection.37}%
-\contentsline {section}{\numberline {1.5}Realizace Hardware části práce}{31}{section.38}%
-\contentsline {subsection}{\numberline {1.5.1}Schéma zapojení napíjecí části}{31}{subsection.39}%
-\contentsline {subsection}{\numberline {1.5.2}Schéma zapojení analogové audio části}{31}{subsection.40}%
-\contentsline {subsection}{\numberline {1.5.3}Návrh PCB desky}{31}{subsection.41}%
-\contentsline {chapter}{\numberline {2}Výsledky studentské práce}{33}{chapter.42}%
-\contentsline {section}{\numberline {2.1}Programové řešení}{33}{section.43}%
-\contentsline {section}{\numberline {2.2}Výsledky měření}{33}{section.44}%
-\contentsline {chapter}{Závěr}{35}{section*.46}%
-\contentsline {chapter}{Literatura}{37}{section*.48}%
-\contentsline {chapter}{Seznam symbol\r {u} a zkratek}{39}{section*.50}%
-\contentsline {chapter}{Seznam p\v {r}\'{\i }loh}{41}{section*.52}%
-\contentsline {chapter}{\numberline {A}Obsah elektronické přílohy }{43}{chapter.53}%
+\contentsline {section}{\numberline {1.3}PCM}{27}{section.20}%
+\contentsline {subsection}{\numberline {1.3.1}Digitalizace zvuku}{27}{subsection.21}%
+\contentsline {subsection}{\numberline {1.3.2}Formáty audio souborů}{27}{subsection.22}%
+\contentsline {subsubsection}{Formát souboru WAV}{27}{section*.23}%
+\contentsline {subsubsection}{Načítání WAV do STM32}{29}{section*.30}%
+\contentsline {subsection}{\numberline {1.3.3}D/A převodníky}{29}{subsection.31}%
+\contentsline {section}{\numberline {1.4}Koncepce návrhu}{29}{section.32}%
+\contentsline {subsection}{\numberline {1.4.1}Mikrokontrolér a práce v CubeIDE}{29}{subsection.33}%
+\contentsline {subsection}{\numberline {1.4.2}Audio řetězec}{29}{subsection.34}%
+\contentsline {subsubsection}{D/A převodník PCM5102A}{29}{section*.35}%
+\contentsline {subsubsection}{Výstupní analogový filtr RC}{31}{section*.37}%
+\contentsline {subsubsection}{Sluchátkový zesilovač TPA6111A2D}{31}{section*.38}%
+\contentsline {subsection}{\numberline {1.4.3}Periferie}{32}{subsection.42}%
+\contentsline {subsection}{\numberline {1.4.4}Napájení}{32}{subsection.43}%
+\contentsline {section}{\numberline {1.5}Realizace Hardware části práce}{32}{section.44}%
+\contentsline {subsection}{\numberline {1.5.1}Schéma zapojení napíjecí části}{32}{subsection.45}%
+\contentsline {subsection}{\numberline {1.5.2}Schéma zapojení analogové audio části}{32}{subsection.46}%
+\contentsline {subsection}{\numberline {1.5.3}Návrh PCB desky}{33}{subsection.47}%
+\contentsline {chapter}{\numberline {2}Výsledky studentské práce}{35}{chapter.48}%
+\contentsline {section}{\numberline {2.1}Programové řešení}{35}{section.49}%
+\contentsline {section}{\numberline {2.2}Výsledky měření}{35}{section.50}%
+\contentsline {chapter}{Závěr}{37}{section*.52}%
+\contentsline {chapter}{Literatura}{39}{section*.54}%
+\contentsline {chapter}{Seznam symbol\r {u} a zkratek}{41}{section*.56}%
+\contentsline {chapter}{Seznam p\v {r}\'{\i }loh}{43}{section*.58}%
+\contentsline {chapter}{\numberline {A}Obsah elektronické přílohy }{45}{chapter.59}%
