@@ -26,173 +26,169 @@ Převzorkovací převodníky jsou schopny dosáhnout až 20 ENOB při vyšších
 %----------------
 %----------------
 %----------------
-Příkladem využití paměťových prvků je modulátor $\Delta\Sigma$ prvního řádu na obr.~\ref{fig:schema_delta_sigma} v základu tvořící akumulátor, dvouúrovňový kvantizátor a záporná zpětná vazba. Akumulátor uchovává svůj předchozí stav a přičítá k němu rozdíl mezi aktuálním vstupem a zpožděným výstupem modulátoru. Činnost uvedeného diskrétního modelu popisují vztahy
-\begin{equation}
-    \begin{aligned}
-        y[n] &= y[n-1] + u[n] - v[n-1], \\
-        v[n] &= Q\bigl(y[n]\bigr),
-    \end{aligned}
-    \label{eq:ds_model}
-\end{equation}
-kde $u[n]$ označuje vstupní signál, $y[n]$ stav
-akumulátoru a současně vstup kvantizátoru,
-$v[n]$ výstupní posloupnost a $Q(\cdot)$ kvantizační
-funkci. Blok $z^{-1}$ představuje zpoždění
-o jeden vzorek.
+% Příkladem využití paměťových prvků je modulátor $\Delta\Sigma$ prvního řádu na obr.~\ref{fig:schema_delta_sigma}, kde se nachází akumulátor, dvouúrovňový kvantizátor a záporná zpětná vazba. Akumulátor si pamatuje sův minulý stav a přičítá k němu rozdíl mezi aktuálním vstupem a zpožděným výstupem modulátoru. Činnost uvedeného diskrétního modelu popisují vztahy
+% \begin{equation}
+%     \begin{aligned}
+%         y[n] &= y[n-1] + u[n] - v[n-1], \\
+%         v[n] &= Q\bigl(y[n]\bigr),
+%     \end{aligned}
+%     \label{eq:ds_model}
+% \end{equation}
+% kde $u[n]$ označuje vstupní signál, $y[n]$ stav
+% akumulátoru a současně vstup kvantizátoru,
+% $v[n]$ výstupní posloupnost a $Q(\cdot)$ kvantizační
+% funkci. Blok $z^{-1}$ představuje zpoždění
+% o jeden vzorek.
 
-Zbytkovou chybu kvantování definujeme jako
-\begin{equation}
-    e[n] = y[n] - v[n].
-    \label{eq:ds_chyba}
-\end{equation}
-Dosazením vztahu~\eqref{eq:ds_chyba}
-do rovnic~\eqref{eq:ds_model} získáme
-\begin{equation}
-    v[n] = u[n] + e[n-1] - e[n].
-    \label{eq:ds_vystup}
-\end{equation}
-Výstupní posloupnost tedy obsahuje vstupní signál
-a diferenci kvantizační chyby. Tato diference
-potlačuje nízkofrekvenční složky chyby, což představuje
-princip jejího tvarování.
+% Zbytkovou chybu kvantování definujeme jako
+% \begin{equation}
+%     e[n] = y[n] - v[n].
+%     \label{eq:ds_chyba}
+% \end{equation}
+% Dosazením vztahu~\eqref{eq:ds_chyba}
+% do rovnic~\eqref{eq:ds_model} získáme
+% \begin{equation}
+%     v[n] = u[n] + e[n-1] - e[n].
+%     \label{eq:ds_vystup}
+% \end{equation}
+% Výstupní posloupnost tedy obsahuje vstupní signál
+% a diferenci kvantizační chyby. Tato diference
+% potlačuje nízkofrekvenční složky chyby, což představuje
+% princip jejího tvarování.
 
-Odhad vstupního signálu vzniká digitální filtrací
-výstupní posloupnosti. Význam průměrování lze ukázat
-pro konstantní vstup $u[n]=u$. Průměr prvních $N$
-výstupních vzorků je podle vztahu~\eqref{eq:ds_vystup}
-roven
-\begin{equation}
-    \hat{u}_N
-    = \frac{1}{N}\sum_{n=1}^{N} v[n]
-    = u + \frac{e[0]-e[N]}{N}.
-    \label{eq:ds_prumer}
-\end{equation}
-Při součtu se mezilehlé chybové příspěvky vzájemně
-vyruší a zůstává pouze rozdíl počáteční a koncové
-chyby. Pokud chyba zůstává ohraničená, odhad
-$\hat{u}_N$ s rostoucím počtem vzorků konverguje
-k hodnotě vstupu $u$. Hodnotu vstupního signálu
-tak lze odhadnout průměrováním posloupnosti,
-jejíž jednotlivé vzorky nabývají pouze dvou hodnot.
+% Odhad vstupního signálu vzniká digitální filtrací
+% výstupní posloupnosti. Význam průměrování lze ukázat
+% pro konstantní vstup $u[n]=u$. Průměr prvních $N$
+% výstupních vzorků je podle vztahu~\eqref{eq:ds_vystup}
+% roven
+% \begin{equation}
+%     \hat{u}_N
+%     = \frac{1}{N}\sum_{n=1}^{N} v[n]
+%     = u + \frac{e[0]-e[N]}{N}.
+%     \label{eq:ds_prumer}
+% \end{equation}
+% Při součtu se mezilehlé chybové příspěvky vzájemně
+% vyruší a zůstává pouze rozdíl počáteční a koncové
+% chyby. Pokud chyba zůstává ohraničená, odhad
+% $\hat{u}_N$ s rostoucím počtem vzorků konverguje
+% k hodnotě vstupu $u$. Hodnotu vstupního signálu
+% tak lze odhadnout průměrováním posloupnosti,
+% jejíž jednotlivé vzorky nabývají pouze dvou hodnot.
 
-U časově proměnného vstupu je nutné volit vlastnosti
-digitálního filtru s ohledem na požadovanou šířku
-pásma signálu. Filtr klouzavého průměru na
-obr.~\ref{fig:schema_delta_sigma} představuje jednoduchou
-realizaci této výstupní filtrace.
+% U časově proměnného vstupu je nutné volit vlastnosti
+% digitálního filtru s ohledem na požadovanou šířku
+% pásma signálu. Filtr klouzavého průměru na
+% obr.~\ref{fig:schema_delta_sigma} představuje jednoduchou
+% realizaci této výstupní filtrace.
 
 %----------------
 %----------------
 %----------------
 
-\begin{figure}[htbp]
-    \centering
-    \begin{tikzpicture}[
-        scale=0.85,
-        transform shape,
-        >=Latex,
-        thick,
-        block/.style={
-            draw,
-            minimum width=16mm,
-            minimum height=16mm
-        },
-        sum/.style={
-            draw,
-            circle,
-            minimum size=5mm,
-            inner sep=0pt
-        },
-        dot/.style={
-            circle,
-            fill,
-            minimum size=3pt,
-            inner sep=0pt
-        }
-    ]
-        % Součtový uzel
-        \node[sum] (s) at (0,0) {$+$};
+% \begin{figure}[htbp]
+%     \centering
+%     \begin{tikzpicture}[
+%         scale=0.85,
+%         transform shape,
+%         >=Latex,
+%         thick,
+%         block/.style={
+%             draw,
+%             minimum width=16mm,
+%             minimum height=16mm
+%         },
+%         sum/.style={
+%             draw,
+%             circle,
+%             minimum size=5mm,
+%             inner sep=0pt
+%         },
+%         dot/.style={
+%             circle,
+%             fill,
+%             minimum size=3pt,
+%             inner sep=0pt
+%         }
+%     ]
+%         % Součtový uzel
+%         \node[sum] (s) at (0,0) {$+$};
 
-        % Akumulátor
-        \node[block, minimum width=24mm]
-            (acc) at (2.4,0)
-            {$\displaystyle\frac{1}{1-z^{-1}}$};
+%         % Akumulátor
+%         \node[block, minimum width=24mm]
+%             (acc) at (2.4,0)
+%             {$\displaystyle\frac{1}{1-z^{-1}}$};
 
-        % Kvantizátor
-        \node[block] (q) at (5.8,0) {};
+%         % Kvantizátor
+%         \node[block] (q) at (5.8,0) {};
 
-        % Výstupní odbočka
-        \node[dot] (v) at (7.4,0) {};
+%         % Výstupní odbočka
+%         \node[dot] (v) at (7.4,0) {};
 
-        % Filtr klouzavého průměru
-        \node[
-            block,
-            minimum width=30mm,
-            align=center,
-            font=\itshape
-        ] (filter) at (9.9,0)
-            {Moving\\Average\\Filter};
+%         % Filtr klouzavého průměru
+%         \node[
+%             block,
+%             minimum width=30mm,
+%             align=center,
+%             font=\itshape
+%         ] (filter) at (9.9,0)
+%             {Moving\\Average\\Filter};
 
-        % Zpoždění ve zpětné vazbě
-        \node[
-            draw,
-            minimum width=12mm,
-            minimum height=7mm
-        ] (delay) at (2.4,-2.2) {$z^{-1}$};
+%         % Zpoždění ve zpětné vazbě
+%         \node[
+%             draw,
+%             minimum width=12mm,
+%             minimum height=7mm
+%         ] (delay) at (2.4,-2.2) {$z^{-1}$};
 
-        % Hlavní signálová cesta
-        \draw[->] (-1.4,0) node[left] {$u$} -- (s.west);
-        \draw[->] (s.east) -- (acc.west);
-        \draw (acc.east) -- (q.west);
-        \draw (q.east) -- (v);
-        \draw[->] (v) -- (filter.west)
-            node[midway, above] {$v$};
-        \draw[->] (filter.east) -- ++(0.9,0)
-            node[right] {$\hat{u}$};
+%         % Hlavní signálová cesta
+%         \draw[->] (-1.4,0) node[left] {$u$} -- (s.west);
+%         \draw[->] (s.east) -- (acc.west);
+%         \draw (acc.east) -- (q.west);
+%         \draw (q.east) -- (v);
+%         \draw[->] (v) -- (filter.west)
+%             node[midway, above] {$v$};
+%         \draw[->] (filter.east) -- ++(0.9,0)
+%             node[right] {$\hat{u}$};
 
-        % Záporná zpětná vazba
-        \draw (v) |- (delay.east);
-        \draw[->] (delay.west) -| (s.south);
-        \node at (0.48,-0.48) {$-$};
+%         % Záporná zpětná vazba
+%         \draw (v) |- (delay.east);
+%         \draw[->] (delay.west) -| (s.south);
+%         \node at (0.48,-0.48) {$-$};
 
-        % Symbol kvantizátoru
-        \begin{scope}[shift={(q.center)}]
-            \draw (-0.4,-0.6) -- (0,-0.6)
-                -- (0,0.6) -- (0.4,0.6);
-            \draw (-0.2,0) -- (0.2,0);
-        \end{scope}
-    \end{tikzpicture}
+%         % Symbol kvantizátoru
+%         \begin{scope}[shift={(q.center)}]
+%             \draw (-0.4,-0.6) -- (0,-0.6)
+%                 -- (0,0.6) -- (0.4,0.6);
+%             \draw (-0.2,0) -- (0.2,0);
+%         \end{scope}
+%     \end{tikzpicture}
 
-    \caption{Blokové schéma modulátoru $\Delta\Sigma$
-        prvního řádu s filtrem klouzavého průměru.}
-    \label{fig:schema_delta_sigma}
-\end{figure}
+%     \caption{Blokové schéma modulátoru $\Delta\Sigma$
+%         prvního řádu s filtrem klouzavého průměru.}
+%     \label{fig:schema_delta_sigma}
+% \end{figure}
 
-
-
-
-\newpage
-- Převzorkování
-
-- delta sigma modulace, tvarování kvantizačního šumu 
-
-- d/A převod a výstupní dolní propust
 
 \section{PCM}
+Nejjednodušší digitální reprezentací signálu je \ac{PCM}; pro každou periodu vzorkování je okamžitá hodnota analogového signálu (amplituda) zakódována s příslušnou digitální úrovní. Parametry PCM jsou vzorkovací frekvence, například 44,1 kHz, používaná nejčastěji u CD, až po hodnoty 192 kHz, a rozlišení hodnot digitálních úrovní (bitové hloubky vzorku). Každé kvantování přináší do nového signálu kvantizační šum, nikdy nelze okamžité hodnoty analogového signálu interpolovat s dokonalo přesností, jde to pouze limitně. Při vstupním rozsahu o dané velikosti vede nižší bitová hloubka k větší kvantizační chybě.
+
+Datový tok závisí i na počtu kanálů. Pokud je vzorkovacá frekvence 44,1 kHz a bitová hloubka je 16 bitů, na jeden kanál připadá 705,6 kbit/s. Stereofonní signál obsahuje kanály dva, proto daotvý tok jeho vzorků je 1411,2 kbit/s (tedy 176,4 kB/s) \cite[s.~181]{katz2005embedded}. 
+
+Stereofonní zvukový záznam o vzorkovací frekvenci 44,1 kHz, bitové hloubce 16 bit o délce tří minut bude tedy vyžadovat velikost úložiště 31,752 MB, podle výpočtu
+
+\begin{equation}
+    \text{Velikost} = \frac{44100 \cdot 16 \cdot 2 \cdot 180}{8} = 31752000 \text{B} = 31,752 \text{MB}
+\end{equation}
 
 
 
-Nejjedodušší digitální reprezentací signálu je \ac{PCM}; pro každou periodu vzorkování je analogová amplituda zakódována s příslušnou digitální úrovní. 
+\section{Formáty audio souborů}
+Jesliže jsou zvukové soubory již k dispozici, je potřeba zajistit jejich správné načtení a interpretaci. Existují nekomprimované a komprimované zvukové soubory. U nekomprimovaného PCM jsou uloženy hodnoty jednotlivých vzorků bez jakékoliv komprese. Při jejich zpracování a následném přehrávání je zapotřebí získat informace o jejich formátu, vyhledat zvuková data a následně je zpracovat podle zjištěných parametrů. Komprimované audio záznamy vyžadují navíc dekódování, kdy se z komprimované reprezentace dat získá posloupnost jednotlivých zvukových vzorků. Komprese může být bezztrátová nebo ztrátová.
 
+\subsection{Formát souboru WAV}
 
+Zvukový formát WAV běžně obsahuje nekomrpimované PCM, může obsahovat ale i jiné způsoby kódování. Popis zvukového formátu používaný ve struktuře \texttt{WAVEFORMATEX} zahrnuje identifikaci kódování (\texttt{wFormatTag}), počet kanálů (\texttt{nChannels}), vzorkovací frekvenci jednotlivých kanálů (\texttt{nSamplesPerSec}), průměrný bajtový tok (\texttt{nAvgBytesPerSec}), blokové zarovnání (\texttt{nBlockAlign}) a počet bitů na vzorek (\texttt{wBitsPerSample}). Pro celočíselné PCM označuje kódování konstanta \texttt{WAVE\_FORMAT\_PCM} s hodnotou \texttt{0x0001}; blokové zarovnání pak odpovídá velikosti vzorkovacího rámce \cite{microsoft_waveformatex}.
 
-
-
-\subsection{Digitalizace zvuku}
-
-\subsection{Formáty audio souborů}
-
-\subsubsection{Formát souboru WAV}
 
 Formát WAV (\textit{Waveform Audio File Format}) je založen na kontejnerovém
 formátu RIFF (\textit{Resource Interchange File Format}). Soubor ve formátu
@@ -201,9 +197,8 @@ Každý blok je identifikován čtyřznakovým identifikátorem FOURCC
 (\textit{Four-Character Code}).
 
 V případě běžného nekomprimovaného PCM WAV souboru se struktura skládá
-z hlavičky RIFF a následných bloků \texttt{fmt} a \texttt{data}.
-Zde je základní struktura hlavičky RIFF:
-\ref{tab:wav_riff_header}.
+z hlavičky RIFF a následných bloků \texttt{fmt} a \texttt{data}. Následující tabulky popisují základní variantu nekomprimovaného PCM WAV souboru s 16bajtovou datovou částí bloku \texttt{fmt } a bez dalších vložených bloků. Offsety jsou uváděny od začátku souboru. V této variantě začínají vlastní zvuková data na offsetu 44~B.
+Základní struktura hlavičky RIFF je uvedena v tabulce~\ref{tab:wav_riff_header}.
 
 \begin{table}[ht]
     \centering
@@ -241,7 +236,7 @@ Za hlavičkou RIFF následuje blok \texttt{fmt}, popisující formát uloženýc
 
         \texttt{Subchunk1Size}
         & 16 & 4
-        & Velikost zbývající části bloku; pro PCM je rovna 16 B \\
+        & Velikost datové části bloku; v popisované základní variantě 16~B \\
 
         \texttt{AudioFormat}
         & 20 & 2
@@ -345,16 +340,6 @@ https://www.phippselectronics.com/how-to-play-a-wav-file-on-stm32/
 
 
 
-\subsection{D/A převodníky}
-Princip Delta Sigma modulace
-
-Převzorkování
-
-I2S rozhraní
-
-SAI rozhraní
-    - Circular Linked-List nastavení v STM32, pro přenos SAI je vhodný 2 slovný FIFO
-
 
 \section{Koncepce návrhu}
 
@@ -365,8 +350,9 @@ Proč zrovna to
 
 Dostatek RAM a FLASH paměti
 
-\subsection{Audio řetězec}
-\subsubsection{D/A převodník PCM5102A}
+\chapter{Řešení návrhu desky plošných spojů}
+\section{Audio řetězec}
+\subsection{D/A převodník PCM5102A}
 typické zapojení podle datasheetu 
 
 \begin{figure}[htbp]
