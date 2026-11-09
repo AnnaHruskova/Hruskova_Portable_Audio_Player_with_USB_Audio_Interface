@@ -1015,6 +1015,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "velmi blízko k U5"
+		(exclude_from_sim no)
+		(at 110.744 125.984 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5d435d80-c5b8-43e7-b777-a4db837bee6e")
+	)
 	(text "C27 ověřit DC bias"
 		(exclude_from_sim no)
 		(at 215.646 116.332 0)
@@ -1034,6 +1044,16 @@
 			)
 		)
 		(uuid "d59ad5ff-82d9-4344-a322-6496781a73a4")
+	)
+	(text "c22 velmi blízko u5\n"
+		(exclude_from_sim no)
+		(at 176.022 91.948 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f3cbdb48-e405-46ae-bb12-c0950cf77865")
 	)
 	(text "C29 ověřit DC bias"
 		(exclude_from_sim no)
@@ -2209,7 +2229,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 84.7852 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -2452,7 +2472,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 74.6252 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -3387,7 +3407,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 207.3148 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -3943,7 +3963,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 109.5248 139.7 0)
 			(hide yes)
 			(show_name no)

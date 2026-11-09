@@ -1383,7 +1383,7 @@
 							)
 						)
 					)
-					(number "11"
+					(number "SH"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3745,7 +3745,7 @@
 		(pin "4"
 			(uuid "512fac6f-f4d6-4ce6-8fd0-e33dc37595a9")
 		)
-		(pin "11"
+		(pin "SH"
 			(uuid "472481aa-8691-4292-aab7-9723366fd992")
 		)
 		(pin "2"

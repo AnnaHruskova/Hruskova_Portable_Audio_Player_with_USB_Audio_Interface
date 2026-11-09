@@ -3729,7 +3729,7 @@
 	)
 	(text "VLXSMSP uzel DALEKO OD DAC analog. signálů a sluch. zesilovače"
 		(exclude_from_sim no)
-		(at 111.76 -7.62 0)
+		(at 202.692 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3796,6 +3796,16 @@
 			)
 		)
 		(uuid "788f04c6-2413-4cc9-8b0d-6656ef58358e")
+	)
+	(text "externí hodiny Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm"
+		(exclude_from_sim no)
+		(at 200.152 126.492 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b1f372cf-51f0-46ed-ab90-3b3f35145e9b")
 	)
 	(text "VDD11 kondenzatory blizko (C57, C58)"
 		(exclude_from_sim no)
@@ -4062,6 +4072,186 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fea6cff7-38d8-4b25-910d-290915c78d72")
+	)
+	(no_connect
+		(at 63.5 132.08)
+		(uuid "06244a8d-83b5-4501-8478-8c143f34b185")
+	)
+	(no_connect
+		(at 124.46 144.78)
+		(uuid "0677acb6-722d-4048-ab63-107667769b6b")
+	)
+	(no_connect
+		(at 124.46 142.24)
+		(uuid "0a7d9ea3-de8b-4800-9234-fe1863e29cd1")
+	)
+	(no_connect
+		(at 63.5 129.54)
+		(uuid "142f21e9-ea1d-4d34-953a-5a2a6a565d2b")
+	)
+	(no_connect
+		(at 124.46 165.1)
+		(uuid "1ff05a60-eadd-48e3-b874-10bb2e0f94d0")
+	)
+	(no_connect
+		(at 63.5 66.04)
+		(uuid "24f29244-baa7-4217-a0a8-462501de2ee8")
+	)
+	(no_connect
+		(at 124.46 119.38)
+		(uuid "2593d3eb-30da-4613-85ed-5bfe31cb8dd9")
+	)
+	(no_connect
+		(at 124.46 73.66)
+		(uuid "2e150544-e253-4461-b3fa-1c595c752d89")
+	)
+	(no_connect
+		(at 124.46 91.44)
+		(uuid "32ccdae9-d45e-407b-abbf-ccde9be33b41")
+	)
+	(no_connect
+		(at 63.5 68.58)
+		(uuid "47f64848-7fc7-42f8-b6e4-529ec11ae87c")
+	)
+	(no_connect
+		(at 63.5 76.2)
+		(uuid "493bb957-9475-4d78-9d64-3d3d1599ecb1")
+	)
+	(no_connect
+		(at 63.5 147.32)
+		(uuid "4a5df0c2-b3da-4d17-ba94-cada4bf7bf00")
+	)
+	(no_connect
+		(at 124.46 53.34)
+		(uuid "4f6624c3-d0fc-44e1-bd6e-4cfc6cef8f78")
+	)
+	(no_connect
+		(at 124.46 167.64)
+		(uuid "4fefe695-e123-4ff7-856b-974d7bbda8fe")
+	)
+	(no_connect
+		(at 124.46 66.04)
+		(uuid "58b9b584-fcaf-4084-9d33-3eb359c26e4e")
+	)
+	(no_connect
+		(at 124.46 139.7)
+		(uuid "59dbda11-1a3e-4c83-a8d1-71387d768554")
+	)
+	(no_connect
+		(at 63.5 139.7)
+		(uuid "637e4dff-2f37-4254-a3ee-59046537eba9")
+	)
+	(no_connect
+		(at 124.46 170.18)
+		(uuid "65c81bcf-a62a-4e8b-9cc4-40367d7a3221")
+	)
+	(no_connect
+		(at 124.46 63.5)
+		(uuid "67651b01-d648-4445-9b18-7c2f10498008")
+	)
+	(no_connect
+		(at 63.5 81.28)
+		(uuid "685c0c6b-6f8a-4447-9dd0-79ffc13877a3")
+	)
+	(no_connect
+		(at 63.5 142.24)
+		(uuid "72217a41-c674-4644-ba24-53bffe52397c")
+	)
+	(no_connect
+		(at 124.46 71.12)
+		(uuid "73646e3b-eb20-4ed2-9cbf-46e619fad767")
+	)
+	(no_connect
+		(at 124.46 60.96)
+		(uuid "791dda33-66ca-48f1-863a-fb5ff8fb8ee2")
+	)
+	(no_connect
+		(at 63.5 96.52)
+		(uuid "7d7e0339-3b39-4b61-9ab3-f1cf66e6923f")
+	)
+	(no_connect
+		(at 63.5 93.98)
+		(uuid "82b48927-c335-44e5-b099-9e7811d9cc94")
+	)
+	(no_connect
+		(at 124.46 101.6)
+		(uuid "8dca1b53-96c3-40f0-9f67-131dfe55fca7")
+	)
+	(no_connect
+		(at 124.46 78.74)
+		(uuid "96fcac69-f4a1-447f-b29c-f54d59b3fb4e")
+	)
+	(no_connect
+		(at 63.5 99.06)
+		(uuid "99082bfb-410f-44c1-8339-ec243c088b1a")
+	)
+	(no_connect
+		(at 63.5 149.86)
+		(uuid "9dda83c9-dcdd-4a5a-84b7-dde2173b0ddf")
+	)
+	(no_connect
+		(at 124.46 106.68)
+		(uuid "a2b1dc63-6c1c-4121-b129-320b9762b954")
+	)
+	(no_connect
+		(at 63.5 78.74)
+		(uuid "a2b4644d-e4ad-48bc-8e18-0b1ca2d30326")
+	)
+	(no_connect
+		(at 63.5 154.94)
+		(uuid "a6a86c4f-cf6c-4a89-b9f5-b4881f59c3b9")
+	)
+	(no_connect
+		(at 63.5 109.22)
+		(uuid "ac8ef3aa-c8ec-4278-9ef9-102f40463355")
+	)
+	(no_connect
+		(at 63.5 111.76)
+		(uuid "b060ca6f-9dda-4ca9-873c-cefdd4fd31fd")
+	)
+	(no_connect
+		(at 124.46 68.58)
+		(uuid "b971edcc-2deb-4586-9cea-36404d201e0f")
+	)
+	(no_connect
+		(at 63.5 144.78)
+		(uuid "baf0fae8-04b5-41f7-8b8c-c78eda90ae9a")
+	)
+	(no_connect
+		(at 63.5 106.68)
+		(uuid "c9277dde-59e4-4f94-884f-7060eeff7eb8")
+	)
+	(no_connect
+		(at 63.5 137.16)
+		(uuid "d54d30fc-8c94-494a-9604-12bc28c0cffa")
+	)
+	(no_connect
+		(at 63.5 134.62)
+		(uuid "d552a54a-3f92-4798-96ab-0fd03c479e59")
+	)
+	(no_connect
+		(at 63.5 101.6)
+		(uuid "deb82728-a313-469b-867f-7592905d5633")
+	)
+	(no_connect
+		(at 63.5 104.14)
+		(uuid "ded18cea-6f16-4834-9558-29d8d28a2dd8")
+	)
+	(no_connect
+		(at 63.5 91.44)
+		(uuid "df9db852-5464-411c-be6e-08f17f3b2abd")
+	)
+	(no_connect
+		(at 63.5 152.4)
+		(uuid "e2b88259-7c81-4535-9894-99c03d9b28c6")
+	)
+	(no_connect
+		(at 63.5 127)
+		(uuid "f65c4d40-5475-41e7-87c0-2ed2bf9c6c49")
+	)
+	(no_connect
+		(at 124.46 55.88)
+		(uuid "fe83af99-8ed6-4620-b924-a25b8d1b6d0d")
 	)
 	(wire
 		(pts
@@ -7226,7 +7416,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
 			(at 260.35 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -8425,7 +8615,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 142.24 40.9448 0)
 			(hide yes)
 			(show_name no)
@@ -8506,7 +8696,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 190.8048 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -8907,7 +9097,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+		(property "Footprint" "Inductor_SMD:L_Coilcraft_XxL4020"
 			(at 82.55 21.59 0)
 			(hide yes)
 			(show_name no)
