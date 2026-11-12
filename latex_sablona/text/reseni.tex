@@ -383,7 +383,29 @@ C4 na In: filtrování vstupu
 C2 na OUT podpora stability systémového napětí
 C3 na BAT je blokovací kondenzátor bateriové větve, všechny hodnoty 4,7uF odpovídají doporučení dle datasheetu
 
+- tepelné ztráty lineárního nabíjení jsou podle P = (Uin - Ubat)\* Icharge, při 5V pro Uin, 3,7V Ubat a Icharge 282 mA vychází P = 0,37 W. tepelná regulace může snížit nabíjecí proud, podle datasheetu 9.3.5.8 je již zabudovaná v BQ24074, obvod sám sleduje svou vnitřní teplotu a reguluje nabíjecí proud.
 
+- tepelná regulace BQ24074 provedena nejlépe tak, podle doporučeného layoutu na PCB, propojení GND měď
+
+- sledování teploty baterie by mohlo být provedeno pomocí R11, nahrazený NTC 
+
+- z datasheetu byl vzán tento průběh nabíjení baterie LiIon pro ilustraci
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{obrazky/BQ24074_typical_charge_cycle.png}
+    \caption{Typický nabíjecí cyklus Li-Ion baterie}
+    \label{fig:BQ24074_typical_charge_cycle}
+\end{figure}
+
+Zelená přerušovaná křivka v grafu \ref{fig:BQ24074_typical_charge_cycle} představuje napětí na svorkách baterie UBat, červená křivka pak představuje proud jdoucí do baterie IBat. Na ose X je čas, nelze určit jednotlivou délku, ale pro svůj průběh a po proměření skutečného zařízení budou jednotlivé časy doplněny. Jde pouze o principiální ilustrativní průběh, ne o skutečnou měřenou charakteristiku. VBat zde představuje regulované koncové nabíjecí napětí, pro návrh přenosného audio přehrávače jde o 4,2 V. VLow je práh přechodu z přednabíjení do hlavního nabíjení, hodnota pro návrh je 2,9 V-3,1V. Io(chg) je nastavený proud nabíjecí fáze, nastavený podle schématu na 282 mA. IPrechg je proud přednabíjení, nastavený na 28 mA (0.1xIo) Iterm je proudový práh ukončení nabíjení, pro režim USB100 je to 9,3 mA, pro režim USB500.
+
+\subsubsection{Precharge}
+Jestliže má baterie před zahájením nabíjení napětí nižší než Vlowv, nabíječ nejprve použije malý proud IPrechg, proto je červená křivka průběhu nabíjení zde konstantní na jedné nízké úrovni. Náboj dodávaný nabíječem BQ24074 postupně zvyšuje napětí baterie (zelená postupně rostoucí křivka). Tento proces je zapotřebí, jestliže se baterie nachází v silně vybitém stavu, dodávání proudu IPrechg nemusí tedy být při každém nabíjení. Pokud je prah Vlowv překročen
+
+
+
+\newpage
+\section{TPS63070}
 
 
 \section{Audio řetězec}
