@@ -341,16 +341,51 @@ https://www.phippselectronics.com/how-to-play-a-wav-file-on-stm32/
 
 
 
-\section{Koncepce návrhu}
+% \section{Koncepce návrhu}
 
-Obhajova výběru komponent
+% Obhajova výběru komponent
 
-\subsection{Mikrokontrolér a práce v CubeIDE}
-Proč zrovna to
+% \subsection{Mikrokontrolér a práce v CubeIDE}
+% Proč zrovna to
 
-Dostatek RAM a FLASH paměti
+% Dostatek RAM a FLASH paměti
 
 \chapter{Řešení návrhu desky plošných spojů}
+
+\section{Napájecí část}
+\subsection{Lineární nabíječ akumulátoru s řízením napájecí cesty }
+- baterie sama o sobě má ochanný modul PCM = protection Circuit Module, PCM modul baterie chrání před přebitím, nadměrným vybitím a nadproudem
+
+
+- max nabití, koncové na 4,2 V, konec vybíjení 3,0
+
+- standardní nabíjecí proud baterie 0,2C = 320mA, rychklé nabíjení podle datasheetu baterie je 0,5C = 800 ma
+
+- nabíječ BQ24074 lineární nabíjecí obvod pro jeden Li-Ion/Li-pol článek
+
+- průběh nabíjení: případné přednabíjení malým proudem, poté fáze konstantního proudu CC a pak fáze konstantního napětí CV, napětí v CV zůstává na napájecí hodnotě a proud postupně klesá, po dosažení ukonřovacího proudu se nabíjení terminuje
+
+- současná power path umožňuje současně nabíjet baterii a zároveň napájet přehrávač. Odběr přehrávače jde přes pin OUT, nabíješ stále sleduje nabíjecí proud baterie odděleně od odběru zařízení. ukonření nabíjení baterie je tedy možné i při současném spuštění zařízení
+
+- nastavení nabíjecího proudu pomocí rezistoru R5: jde o 0,176C
+\begin{equation}
+    I_{\text{CHG}} = \frac{K_{\text{ISET}}}{R_5} = \frac{890 \text{A}\Omega}{3160 \Omega} \approx 282 \text{mA}.
+\end{equation}
+
+- dva režimy napájení pomocí pinů EN2 (stáhnutý ke GND, vždy tedy logická 0) a pin EN1 řízený MCU STM32. Pokud EN2 = 0 a EN1 = 0, je režim naastavený na USB100 a maximální vstupní proud je 100mA. Pokud EN2 = 0, EN1 = 1, pak je režim v USB500 a maximální vstuponí proud je nastaven na 500 mA.
+Při vypnutém přehrávači je EN1 stažen ke GND a nabíjecí proud je méně než 100 mA... 
+
+- pin OUT: při dostatečném vstupním napájení je OUT regulovaný na cca 4,4V, baterie se mezitím nabíjí na 4,2V. síť ;"sys\_power" není tedy přímo napětí z baterie ani to není stabilních 3,32bitová
+
+
+- konfigurace kondenzátorů kolem 
+C4 na In: filtrování vstupu
+C2 na OUT podpora stability systémového napětí
+C3 na BAT je blokovací kondenzátor bateriové větve, všechny hodnoty 4,7uF odpovídají doporučení dle datasheetu
+
+
+
+
 \section{Audio řetězec}
 \subsection{D/A převodník PCM5102A}
 typické zapojení podle datasheetu 
