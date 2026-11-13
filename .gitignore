@@ -9,3 +9,17 @@
 *.run.xml
 *.synctex.gz
 *.dvi
+*.tfm
+*vf
+*.pfb
+*.enc
+*.sty
+*.bst
+
+*.lol
+*.loa
+*.lof
+*.toa
+*.toc
+*.fd
+*.map
