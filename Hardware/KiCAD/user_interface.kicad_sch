@@ -1791,7 +1791,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 111.252 52.07 90)
 			(hide yes)
 			(show_name no)
@@ -1861,7 +1861,7 @@
 				)
 			)
 		)
-		(property "Value" "VOLL_DOWN"
+		(property "Value" "VOL_DOWN"
 			(at 140.97 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2111,7 +2111,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "display_oled_footprint:Untitled"
+		(property "Footprint" "display_oled_footprint:OLED_SPI_7pin_P2.54mm"
 			(at 146.05 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -2134,6 +2134,17 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 146.05 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "OLED modul SPI 7pin (zakoupený vlastní)"
 			(at 146.05 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -2285,7 +2296,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 133.35 38.4048 0)
 			(hide yes)
 			(show_name no)
@@ -2366,7 +2377,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 133.35 51.1048 0)
 			(hide yes)
 			(show_name no)
