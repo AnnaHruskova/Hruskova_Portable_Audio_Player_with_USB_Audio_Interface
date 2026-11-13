@@ -23,3 +23,5 @@
 *.toc
 *.fd
 *.map
+
+/latex/
