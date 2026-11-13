@@ -400,7 +400,16 @@ C3 na BAT je blokovací kondenzátor bateriové větve, všechny hodnoty 4,7uF o
 Zelená přerušovaná křivka v grafu \ref{fig:BQ24074_typical_charge_cycle} představuje napětí na svorkách baterie UBat, červená křivka pak představuje proud jdoucí do baterie IBat. Na ose X je čas, nelze určit jednotlivou délku, ale pro svůj průběh a po proměření skutečného zařízení budou jednotlivé časy doplněny. Jde pouze o principiální ilustrativní průběh, ne o skutečnou měřenou charakteristiku. VBat zde představuje regulované koncové nabíjecí napětí, pro návrh přenosného audio přehrávače jde o 4,2 V. VLow je práh přechodu z přednabíjení do hlavního nabíjení, hodnota pro návrh je 2,9 V-3,1V. Io(chg) je nastavený proud nabíjecí fáze, nastavený podle schématu na 282 mA. IPrechg je proud přednabíjení, nastavený na 28 mA (0.1xIo) Iterm je proudový práh ukončení nabíjení, pro režim USB100 je to 9,3 mA, pro režim USB500.
 
 \subsubsection{Precharge}
-Jestliže má baterie před zahájením nabíjení napětí nižší než Vlowv, nabíječ nejprve použije malý proud IPrechg, proto je červená křivka průběhu nabíjení zde konstantní na jedné nízké úrovni. Náboj dodávaný nabíječem BQ24074 postupně zvyšuje napětí baterie (zelená postupně rostoucí křivka). Tento proces je zapotřebí, jestliže se baterie nachází v silně vybitém stavu, dodávání proudu IPrechg nemusí tedy být při každém nabíjení. Pokud je prah Vlowv překročen
+Jestliže má baterie před zahájením nabíjení napětí nižší než Vlowv, nabíječ nejprve použije malý proud IPrechg, proto je červená křivka průběhu nabíjení zde konstantní na jedné nízké úrovni. Náboj dodávaný nabíječem BQ24074 postupně zvyšuje napětí baterie (zelená postupně rostoucí křivka). Tento proces je zapotřebí, jestliže se baterie nachází v silně vybitém stavu, dodávání proudu IPrechg nemusí tedy být při každém nabíjení. Pokud je prah Vlowv překročen, poté nabíječ může zvýšit proud, začíná pak hlavní nabíjecí fáze. Vlow řídí pouze přechod z přednabíjecí řásti do plně nabíjecí.
+
+\subsubsection{Fast Charge CC}
+CC = constant current, nabíječ udržuje napájecí proud přibližně na hodnotě Io(chg), napětí na baterii postupně roste. Proud nastavuje rezistor R5 ze schématu zapojení, podle rovnice VÝŠE DOPLNIT CITACI A ČÍSLOVÁNÍ ROVNIC. Jakmile je dosaženo napětí na betrii 4,2V, přejde se na další část nabíjení.
+
+\subsubsection{CV Taper, nabíjení konstantním napětím}
+CV = constant voltage, nabíječ v této fázi udržuje napětí baterie okolo Vbat(reg) (vodorovná zelená křivka). Velikost dodávaného proudu klesá. Taper = postupné snižování proudu. Proud nemusí klesat lineárně, závisí na velikosti samotné baterie, teplotě nebo i na stavu opotřebení akumulátoru. Nabíječ dále sleduje dosažení ITerm, poté může být nabíjení ukončeno.
+
+\subsubsection{done, ukončení nabíjení}
+Při této fázi nabíječ přestane dodávat proud do baterie,na grafu se jedná o pokles z Iterm na 0. Pin CHG je typu open drain, tedy výstup s otevřeným kolektorem tranzistoru typu MOS. ve stavu vysoké impedance přestává stahovat signál k zemi, rezisotr R8 ze schématu přitáhne CHG\_status k 3,3V. Tento stav nastává i při nepřítomném vstupním napětí VBUS z UBSC. (po odpojení usbc neprobíhá nabíjení, výstup CHG přejde do stavu vysoké impedance, pokud přehrávač dále beží z baterie, R8 přitáhne chg\_status na 3,3V). Úroveň je stejná při dokončeném nabíjení i při odpojení usb-c, proto je důležité i sledovat CHG\_PGOOD signalizující přítomost platného vstupního napájení.
 
 
 
