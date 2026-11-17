@@ -4717,6 +4717,12 @@
 		(uuid "caf28128-708b-4f60-a214-ad1574d1f214")
 	)
 	(junction
+		(at 91.44 189.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d19631e1-9723-4573-9f90-fd70d50181fd")
+	)
+	(junction
 		(at 231.14 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5096,6 +5102,16 @@
 	)
 	(wire
 		(pts
+			(xy 90.17 189.23) (xy 91.44 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e086f91-f2d5-49ec-baf6-bfa442b37060")
+	)
+	(wire
+		(pts
 			(xy 124.46 157.48) (xy 127 157.48)
 		)
 		(stroke
@@ -5253,6 +5269,16 @@
 			(type default)
 		)
 		(uuid "39aee5d0-5376-4664-b85f-4c92b4538040")
+	)
+	(wire
+		(pts
+			(xy 91.44 189.23) (xy 91.44 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a044548-51d6-443b-8b61-6ddf8e2346da")
 	)
 	(wire
 		(pts
@@ -5523,16 +5549,6 @@
 			(type default)
 		)
 		(uuid "5c1d1e16-79f3-4fbb-98fc-076c1bce2245")
-	)
-	(wire
-		(pts
-			(xy 91.44 185.42) (xy 91.44 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c92066b-9c51-4c28-a9da-45ac1705da26")
 	)
 	(wire
 		(pts
@@ -6286,6 +6302,16 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 185.42) (xy 91.44 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3f19028-f95c-4da2-aa80-820851c9ef44")
+	)
+	(wire
+		(pts
 			(xy 88.9 25.4) (xy 86.36 25.4)
 		)
 		(stroke
@@ -6734,16 +6760,6 @@
 		)
 		(uuid "7f3537f1-9ab0-47c3-b0bf-9d58bad5fc7c")
 	)
-	(label "LSE_OUT"
-		(at 196.85 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "80e7d5af-7bf7-4fe0-acdb-dfc8742b50fb")
-	)
 	(label "VBAT"
 		(at 80.01 33.02 180)
 		(effects
@@ -6946,7 +6962,7 @@
 		(uuid "227b879c-558c-4e35-8c6e-9fcf685813b5")
 	)
 	(hierarchical_label "BAT_SENSE"
-		(shape input)
+		(shape output)
 		(at 127 53.34 0)
 		(effects
 			(font
@@ -6979,7 +6995,7 @@
 		(uuid "40a62fcf-574d-480f-b616-276046e1a11f")
 	)
 	(hierarchical_label "BUCK_PS"
-		(shape input)
+		(shape output)
 		(at 59.69 127 180)
 		(effects
 			(font
@@ -7540,6 +7556,84 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
 					(reference "#PWR0304")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 91.44 190.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2222b7da-5da8-4092-bd31-9d96269cfb5a")
+		(property "Reference" "#PWR01"
+			(at 91.44 196.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 91.44 195.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 91.44 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b8ea7f40-abde-416a-8bb7-08961505ed3e")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -8237,6 +8331,85 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
 					(reference "#PWR0303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 90.17 189.23 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d6a39a9-1521-4e41-9c55-d042d182d5f9")
+		(property "Reference" "#FLG04"
+			(at 88.265 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 86.36 189.2299 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 90.17 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a05f90a-9ee0-4f8b-8336-184c23053012")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
+					(reference "#FLG04")
 					(unit 1)
 				)
 			)
@@ -10626,7 +10799,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 190.8048 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -10649,6 +10822,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 191.77 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 191.77 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -11417,84 +11601,6 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
 					(reference "C51")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 91.44 187.96 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e7fcc9d7-d193-457e-95ba-63bb280366a0")
-		(property "Reference" "#PWR01"
-			(at 91.44 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 91.44 193.04 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 91.44 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 91.44 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 91.44 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8706f5f9-37db-40b5-ac39-c998c1144329")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/7e6655f2-2cf2-4ff4-894a-0a7b2398d4df"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)

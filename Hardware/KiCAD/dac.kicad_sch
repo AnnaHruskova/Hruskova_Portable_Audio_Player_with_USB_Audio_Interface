@@ -1295,6 +1295,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "proto mají pouzdro 0805"
+		(exclude_from_sim no)
+		(at 82.042 146.812 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0aa72ea1-05ca-4f22-b110-31ae73c2a09f")
+	)
 	(text "velmi blízko k U5"
 		(exclude_from_sim no)
 		(at 85.344 114.554 0)
@@ -1335,9 +1345,9 @@
 		)
 		(uuid "f3cbdb48-e405-46ae-bb12-c0950cf77865")
 	)
-	(text "C29 ověřit DC bias"
+	(text "X5R, X7R ztrácejí až 40% kapacity se ss napětím"
 		(exclude_from_sim no)
-		(at 91.948 144.272 0)
+		(at 90.17 144.526 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2886,7 +2896,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 74.6252 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -2909,6 +2919,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 73.66 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 73.66 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4010,7 +4031,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 207.3148 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -4033,6 +4054,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 208.28 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 208.28 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -4643,7 +4675,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 84.1248 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -4666,6 +4698,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 85.09 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 85.09 132.08 0)
 			(hide yes)
 			(show_name no)

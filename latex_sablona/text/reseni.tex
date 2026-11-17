@@ -354,12 +354,19 @@ https://www.phippselectronics.com/how-to-play-a-wav-file-on-stm32/
 
 \section{Napájecí část}
 \subsection{Lineární nabíječ akumulátoru s řízením napájecí cesty }
-- baterie sama o sobě má ochanný modul PCM = protection Circuit Module, PCM modul baterie chrání před přebitím, nadměrným vybitím a nadproudem
+- vybranů akumulátor obsahuje vlastní ochranný modul PCM, podle dokumentace PCM zajišťuje ochanu před přebitím, nadměrným vybitím a nadproudem. Baterie nemá vlastní NTC termistor pro sledování teploty, má tedy pouze 2 piny, PLus a mínus. Mezi pin TS a GND je tedy osazen rezistor R11 = 10kOhm, udržující přípustnou úroveň na vstupu TS a umožňující nabíjení bez sledování teploty akumulátoru. Pevný odpor neposkytuje informaci o  teplotě baterie. 
 
+- R11 osadit, ale umístit ho tak, aby byl na desce baterie, aby se dotýkal. R11 je umístěn na stranu přivrácené k akumulátoru s ohledem na pozdější možnost pozdějšího ozazení SMD termistoru. V základní variantě je osazem pevný rezistor 10 kOhm. Jeho náhrada za NTC termistor vyžaduje kompatibilní pouzdro, vhodnou odporovoou charakteristiku a zajištění tepelné vazby na akumulátor. 
 
-- max nabití, koncové na 4,2 V, konec vybíjení 3,0
+- Současně je ale navržena ochrana tvořená obvodu DW01A a FS8205A umožňující použití jiného akumulátoru bez vlastního PCM modulu. Ochana je zapojena do proudové cesty i při použití baterie s vlastním PCM; vznikají tak dvě navazující ochrany
 
-- standardní nabíjecí proud baterie 0,2C = 320mA, rychklé nabíjení podle datasheetu baterie je 0,5C = 800 ma
+- DW01A pro vyhodnocení ochranných stavů a spínání tranzistorů, sleduje napětí a podmínky nadproudu. Prostřednictvím snímacího vstupu vyhodnocuje nadproudové podmínky, pokud se dosáhne ochranného prahu, začne ovládat tranzistory aby se přerušila cesta nabíení nebo vybíjení.
+
+- FS8205A obsahuje 2 MOSFETy zapojené proti sobě, lze s nimi blokovat oba směry proudu baterie
+
+- Koncové nabíjecí napětí je přibližně 4,2 V. Jako dolní provozní mez vybíjení je v návrhu uvažováno napětí 3,0 V. Dodržení této meze musí zajistit řízení přehrávače; BQ24074 nezajišťuje odpojení vybíjení právě při této hodnotě. Parametr \(V_{\mathrm{LOWV}}\approx3{,}0\,\mathrm{V}\) označuje přechod z přednabíjení do hlavního nabíjení.
+
+- Pro akumulátor s kapacitou 1600 mAh odpovídá standardnímu nabíjecímu režimu 0,2 C proud 320 mA a režimu 0,5 C proud 800 mA. V navrženém zapojení je rezistorem R5 = 3,16 kohm nastaven typický nabíjecí proud přibližně 282 mA, tedy 0,176 C.
 
 - nabíječ BQ24074 lineární nabíjecí obvod pro jeden Li-Ion/Li-pol článek
 
@@ -376,6 +383,23 @@ https://www.phippselectronics.com/how-to-play-a-wav-file-on-stm32/
 - dva režimy napájení pomocí pinů EN2 (stáhnutý ke GND, vždy tedy logická 0) a pin EN1 řízený MCU STM32 a současně připojen na R2 = 100 kOhm k VBUS. Pokud je VBUS přítomný, ale je neaktivní řízení z MCU, výchozí stav je USB500, pokud EN2 = 0 (default) a EN1 = 1. POkud EN1 je stařen do logické nuly, nastaví se stav USB100. Vstupní limit je společný pro napájení přehrávače i nabíjení baterie. Po připojení USB se automaticky měnič zapne
 
 - pin OUT: při dostatečném vstupním napájení je OUT regulovaný na cca 4,4V, baterie se mezitím nabíjí na 4,2V. síť ;"sys\_power" neposkytuje stabilizovaných 3,3V, bez vstupního napětí je tato větev napájena z baterie přes vnitřní tranzistor. Napětí 3,3V vytváří až navazující měnič.
+
+- Bezpečnostní časovače jsou nastaveny rezistorem R7 = 68 kOhm připojeným mezi TMR a GND. Pro typickou hodnotu koeficientu \(K_{\mathrm{TMR}}=48\,\mathrm{s/k\Omega}\) vychází časový limit přednabíjení
+\[
+t_{\mathrm{PRECHG}}
+=K_{\mathrm{TMR}}R7
+=48\cdot68
+=3264\,\mathrm{s}
+=54{,}4\,\mathrm{min}.
+\]
+Časový limit hlavního nabíjení činí
+\[
+t_{\mathrm{MAXCHG}}
+=10K_{\mathrm{TMR}}R7
+=32640\,\mathrm{s}
+\approx9{,}07\,\mathrm{h}.
+\]
+Jedná se o typické bezpečnostní limity, nikoli o předpokládanou dobu nabití akumulátoru. Při omezení nabíjecího proudu příslušnými regulačními smyčkami se časování zpomaluje. Překročení časového limitu vede k vyhodnocení poruchy.
 
 
 - konfigurace kondenzátorů kolem 
@@ -397,7 +421,7 @@ Hondota P = 0,37 W představuje pouze ztráty spojené s nabíjecím proudem,
     \label{fig:BQ24074_typical_charge_cycle}
 \end{figure}
 
-Zelená přerušovaná křivka v grafu \ref{fig:BQ24074_typical_charge_cycle} představuje napětí na svorkách baterie UBat, červená křivka pak představuje proud jdoucí do baterie IBat. Osa X představující časovou osu, je schematická, nelze určit jednotlivou délku, skutečné hodnoty jednotlivých fází by mohly být doplněny měřením audio zařízení. Jde pouze o principiální ilustrativní průběh, ne o skutečnou měřenou charakteristiku. VBat(reg) zde představuje regulované koncové nabíjecí napětí, pro návrh přenosného audio přehrávače jde o 4,2 V. VLow je práh přechodu z přednabíjení do hlavního nabíjení, hodnota pro návrh  typicky 3,0V, s mezemi 2,9 V-3,1V. Io(chg) je nastavený proud nabíjecí fáze, nastavený podle schématu na 282 mA. IPrechg je proud přednabíjení, nastavený na 28 mA (0.1xIo) Iterm je proudový práh ukončení nabíjení, pro režim USB100 je to 9,3 mA, pro režim USB500. Pin ITERM je ponechán nezapojený, typický ukončovací proud činí proto přibližně 28,2 mA v režimu USB500 a 9,3 mA v režimu USB100.
+Zelená přerušovaná křivka v grafu \ref{fig:BQ24074_typical_charge_cycle} představuje napětí na svorkách baterie UBat, červená křivka pak představuje proud jdoucí do baterie IBat. Osa X představující časovou osu, je schematická, nelze určit jednotlivou délku, skutečné hodnoty jednotlivých fází by mohly být doplněny měřením audio zařízení. Jde pouze o principiální ilustrativní průběh, ne o skutečnou měřenou charakteristiku. VBat(reg) zde představuje regulované koncové nabíjecí napětí, pro návrh přenosného audio přehrávače jde o 4,2 V. VLow je práh přechodu z přednabíjení do hlavního nabíjení, hodnota pro návrh  typicky 3,0V, s mezemi 2,9 V-3,1V. Io(chg) je nastavený proud nabíjecí fáze, nastavený podle schématu na 282 mA. IPrechg je proud přednabíjení, nastavený na 28 mA (0.1xIo) Iterm je proudový práh ukončení nabíjení, pro režim USB100 je to 9,3 mA, pro režim USB500 28,2mA. Pin ITERM je ponechán nezapojený, typický ukončovací proud činí proto přibližně 28,2 mA v režimu USB500 a 9,3 mA v režimu USB100.
 
 \subsubsection{Precharge}
 Jestliže má baterie před zahájením nabíjení napětí nižší než Vlowv, nabíječ nejprve použije malý proud IPrechg, proto je červená křivka průběhu nabíjení zde konstantní na jedné nízké úrovni. Náboj dodávaný nabíječem BQ24074 postupně zvyšuje napětí baterie (zelená postupně rostoucí křivka). Tento proces je zapotřebí, jestliže se baterie nachází v silně vybitém stavu, dodávání proudu IPrechg nemusí tedy být při každém nabíjení. Pokud je prah Vlowv překročen, poté nabíječ může zvýšit proud, začíná pak hlavní nabíjecí fáze. Vlow řídí pouze přechod z přednabíjecí řásti do plně nabíjecí (do fáze nabíjení konstantním proudem).
@@ -414,12 +438,129 @@ Při této fázi nabíječ přestane dodávat proud do baterie,na grafu se jedn�
 
 
 \newpage
-\section{TPS63070}
+\subsection{Měnič TPS63070}
+\label{teorie_tps63070}
 
+- Na výstup nabíjecího obvodu BQ24074 navazuje spínaný měnič TPS63070. Vytváří stabilizované napětí přibližně 3,3\,V z napájecí větve \texttt{sys\_power}
+
+
+-  Při napájení z USB a dostatečných vstupních podmínkách je napětí větve \texttt{sys\_power}: regulováno přibližně na 4,4 V. Po odpojení USB je tato větev napájena z akumulátoru a její napětí závisí na stavu jeho nabití a úbytcích v napájecí cestě. Vstupní napětí měniče může být vyšší i nižší než požadované výstupní napětí 3,3 V. Z tohoto důvodu je použit měnič schopný napětí snižovat i zvyšovat.
+
+- TPS63070 je synchronní neinvertující měnič typu buck-boost. V režimu PWM pracuje s typickou spínací frekvencí 2,4 MHz. Při povoleném úsporném režimu může při malém zatížení přecházet do režimu PFM.
+
+- Regulátor TPS63070 přizpůsobuje spínání výkonové části aktuálnímu vstupnímu napětí a zatížení tak, aby udržoval požadovanou střední hodnotu výstupního napětí. Na výstupu se současně vyskytuje zvlnění a přechodné odchylky při změnách provozních podmínek.
+
+- TPS63070 obsahuje čtyři výkonové tranzistory MOSFET s kanálem N, uspořádané do dvou polomůstků. Mezi jejich středy je připojena vnější cívka L1 s indukčností 1,5 µH. Pro následující popis označme uzel připojený k vývodu L1 měniče jako A a uzel připojený k vývodu L2 jako B. Kladný směr proudu cívkou volíme od A k B a napětí na cívce definujeme jako \(u_L=u_A-u_B\).
+
+Pro popis výkonové části označme uzel spojený s vývodem L1 měniče jako A a uzel spojený s vývodem L2 jako B. Mezi těmito uzly je připojena vnější cívka. Pro další výklad označme vnitřní výkonové tranzistory jako S1 až S4. Tranzistor S1 je zapojen mezi VIN a uzel A, S2 mezi uzel A a PGND, S3 mezi uzel B a VOUT a S4 mezi uzel B a PGND.
+
+
+Pro ideální cívku platí \[
+u_L=L\frac{\mathrm{d}i_L}{\mathrm{d}t};
+\] tedy pokud je kladné napětí na cívce, způsobí růst proudu, záporné napětí způsobí pokles proudu. Energie magnetického pole je poté \[
+E_L=\frac12Li_L^2,
+\] a při kladném proudu se energie magnetického pole zvyšuje, pokud proud roste, a snižuje, pokud proud klesá. Klesající proud přitom může po celý interval zůstávat kladný. Ukládání a uvolňování energie probíhá v obou režimech buck, i boost. Kladný směr proudu cívkou volíme od uzlu A k uzlu B a napětí na cívce definujeme jako \(u_L=u_A-u_B\).
+
+Následující vysvětlení předpokládá ustálený režim PWM se spojitým kladným proudem cívkou. Pro zjednodušení jsou zanedbány úbytky na sepnutých tranzistorech, odpor vinutí cívky a krátké přepínací intervaly. Při blízkých hodnotách vstupního a výstupního napětí měnič přechází mezi cykly buck a boost.
+
+\subsubsection{Buck, První interval, rostoucí proud cívkou}
+V čistém snižujícím režimu, kdy platí $U_{\mathrm{IN}}>U_{\mathrm{OUT}}$, spínají tranzistory vstupního polomůstku. Tranzistor S3 zůstává sepnutý a S4 vypnutý. V prvním intervalu je sepnutý také S1, zatímco S2 je vypnutý. Proud teče ze vstupu VIN přes S1, cívku a S3 do výstupní větve VOUT. Pro napětí uzlů přibližně platí $u_A\approx U_{\mathrm{IN}}$ a $u_B\approx U_{\mathrm{OUT}}$. Napětí na cívce je proto\[u_L=U_{\mathrm{IN}}-U_{\mathrm{OUT}}>0.\] Proud cívkou roste a energie jejího magnetického pole se zvyšuje.
+
+\subsubsection{Buck, Druhý interval, klesající proud cívkou}
+Ve druhém intervalu je S1 vypnutý a S2 sepnutý. Tranzistor S3 zůstává sepnutý a S4 vypnutý. Uzel A je prostřednictvím S2 připojen k PGND, zatímco uzel B zůstává připojen k výstupu VOUT. Přibližně proto platí $u_A\approx0$ a $u_B\approx U_{\mathrm{OUT}}$, takže \[ u_L=-U_{\mathrm{OUT}}<0. \] Proud cívkou pokračuje ve směru od A k B, ale postupně klesá. Proudový okruh se uzavírá přes zátěž, zem, tranzistor S2, cívku a tranzistor S3. Cívka v tomto intervalu uvolňuje část uložené energie do výstupu.
+
+\subsubsection{Boost -- první interval, ukládání energie}
+\label{teorie_Boost_first_interval}
+V čistém zvyšujícím režimu platí
+$U_{\mathrm{IN}}<U_{\mathrm{OUT}}$.
+Tranzistor S1 zůstává sepnutý a S2 vypnutý.
+Spínání probíhá ve výstupním polomůstku.
+
+V prvním intervalu je sepnutý S4 a vypnutý S3.
+Proud teče ze vstupu přes S1 a cívku do S4
+a následně do PGND. Přibližně platí
+$u_A\approx U_{\mathrm{IN}}$ a $u_B\approx0$,
+takže
+\[
+    u_L=U_{\mathrm{IN}}>0.
+\]
+Proud cívkou roste a energie jejího magnetického
+pole se zvyšuje. Zátěž během tohoto intervalu
+napájejí výstupní kondenzátory, protože S3
+odděluje cívku od výstupu.
+
+\subsubsection{Boost -- druhý interval, předávání energie}
+
+Ve druhém intervalu je S4 vypnutý a S3 sepnutý.
+Tranzistor S1 zůstává sepnutý a S2 vypnutý.
+Proud teče ze vstupu přes S1, cívku a S3
+do výstupní větve VOUT.
+
+Pro napětí uzlů přibližně platí
+$u_A\approx U_{\mathrm{IN}}$ a
+$u_B\approx U_{\mathrm{OUT}}$. Napětí na cívce je
+\[
+    u_L=U_{\mathrm{IN}}-U_{\mathrm{OUT}}<0.
+\]
+Proud cívkou proto klesá a její magnetická energie
+se uvolňuje. Energii do výstupu v tomto intervalu
+dodávají současně vstupní zdroj i cívka.
+
+\subsubsection{Zapojení součástek kolem měniče TPS63070}
+- C6, C7, C8, 3x10uF jsou připojeny mezi \texttt{sys\_power} a GND, jedná se o vstupní blokovací kondenzátory. Poskytují místní zásobu náboje pro rychlé změny vstupníého proudu měniče, omezují poklesy napětí a proudové impulzy vedené delší napájecí cestou od BQ24074. Je důležité tyto kondenzátory připojit do těsné blízkosti vývodům měniče, pro omezení kapacitní indukčnosti propojů (omezení parazitní kapacity). DLouhé propojení mají za následek horěí účinnost při rychlých změnách proudu.
+
+- Na výstupu jsou kondenzátory C9 = 10 uF a C10, C11, C12, 3x 22uF. Součet jmenovitých kapacit kondenzátorů na výstupu je Cout = 10 + 3x10uF = 76 uF. Omezují zvlnění výstupního napětí, krátkodobě působí i jako dodávači proudu při zvýšení odběru. V boost režimu \ref{teorie_Boost_first_interval} jsou shcopny napájet zátěž během intervalu ukládání energie do cívky. Vše odpovídá typickému zapojení výrobce podle datasheetu \cite{datasheet_tps63070}.
+
+- R12 a R13 nastavují výstupní napětí, dělič převádí výstupní napětí na hodnotu 0,8\,V, která je vyřadována na vstupu FB. 
+\[
+U_{\mathrm{OUT}}
+=0{,}8\left(1+\frac{470}{150}\right)
+\approx3{,}307\,\mathrm{V}.
+\]
+Děličem protéká proud o velikosti \[
+I_{\mathrm{DIV}}=\frac{0{,}8}{150\,000}
+\approx5{,}33\,\mu\mathrm{A}.
+\]
+
+- přes odporový dělič při zapnutém měniči stále protéká proud, i přestože ostatní části přehrávače neodebírají proud. Hondnota odebíraného proudu je vypočítána podle \[
+I_{\mathrm{dělič}}=\frac{3{,}3}{470\,000+150\,000}
+\approx 5{,}3\,\mu\mathrm{A}.
+\] Pokud by se vybraly odpory 47k a 15kOhm, poměr zůstává stejný, ale spotřeba děliče by se zdesetinásobila. Jak bylo již zmíněno, dělič přivání na pin FB cca 0,8 V, poté je poznáno, jestli je na výstupu, proto jsou pro tento návrh použity hodnoty 470 kOhm a 150 kOhm, které odpovídají typickým hodnotám doporučeným výrobcem pro výstupní napětí 3,3 V.
+
+- C5 (100nF) je blokovací kondenzátor výstupu vnitřního regulátoru VAUX, připojený mezi VAUX (3) a GND.
+
+- R28 je 100 kOhm je pull-up rezistor mezi větví \texttt{sys\_power} a signálem \texttt{PWR\_EN}, který ovládá vstup EN měniče. Výstup obvodu LTC29541 je typu open drain. Při zapnutí jej obvod uvolní a R28 přitáhne \texttt{PWR\_EN} do vysoké úrovně; při vypnutí LTC29541 stáhne signál k zemi. 
+
+- pin FB2 zůstává nezapojený; výstupní napětí se pro aplikaci audio přehrávače nemění ani nepřepíná, zůstává na 3,3\,V a výstupní napětí je určeno děličem R12 a R13. Pin VSEL je připojen k GND.
+
+
+
+% ------------------------------------------------
+% ------------------------------------------------
+\subsection{Řízení zpínání přehrávače pomocí LTC2954ITS8-1}
+\label{teorie_LTC2954ITS8-1}
+
+- LTC2954ITS8-1, dále jen LTC, je napájen pomocí větve \texttt{sys\_power}. Tímpádem dostává napájení, přestože jsou ostatní části přehrávače (TPS měnič, MCU atd) vypnuté. Díky tomuto zapojení je obvod LTC schopen sledovat stav talčítka SW1. Po stisknutí tlačítka je schopen tato spojení sepnout.
+
+- na pin PB (push button) s vnitřním pull-up rezistorem (zůstává zapojený po uvolnění tlačítka) je zapojeno SW1 tlačítko, po stisku je pin PB spojen s GND. Obvod kontroluje jak dlouho stisk trvá, defaultní nastavení dle výrobce je stanoveno na základních 32 ms (bez zapojení kondenzátoru C16), ovšem tato doba je příliž krátká; přehrávač by se mohl jednodušše spustit i při omylném dotyku. Proto byl zvolen čas \[
+t_{\mathrm{zapnutí}}
+\approx32+2116
+\approx2148\,\mathrm{ms}
+\approx2{,}15\,\mathrm{s},
+\] dle vztahu výrobce \[
+C_{\mathrm{ONT}}
+=1{,}56\times10^{-4}\,\frac{\mu\mathrm{F}}{\mathrm{ms}}
+\left(t_{\mathrm{ONT}}-1\,\mathrm{ms}\right).
+\]
+Skutečný čas zapnutí ovlivňují tolerance součástky.
+
+
+% ------------------------------------------------
+% ------------------------------------------------
 
 \section{Audio řetězec}
 \subsection{D/A převodník PCM5102A}
-typické zapojení podle datasheetu 
+typické zapojení podle datasheetu .
 
 \begin{figure}[htbp]
     \centering
@@ -429,7 +570,7 @@ typické zapojení podle datasheetu
 \end{figure}
 
 Obsahuje integrovanou nábojovou pumpu - vytváří záporné napájecí napětí přestože je čip krmen 3,3 V. DAC má pak soustředěný výstup kolem 0V.
-Ale je zapotřebí přidat kondenzátor mezi CAPP a CAPM piny (2 a 4, používá se pro přenos náboje), a potom ještě jeden mezi VNEG a CPGND piny (5 a , filtruje vztvořené záporné napětí).
+Ale je zapotřebí přidat kondenzátor mezi CAPP a CAPM piny (2 a 4, používá se pro přenos náboje), a potom ještě jeden mezi VNEG a CPGND piny (5 a 3, filtruje vztvořené záporné napětí).
 
 PIN 10 DEMP na GND, vypne se tam de-emphasis.
 
@@ -444,7 +585,7 @@ PIN 17 XSMT, připojen na 3,3V.
 
 - Čip využívá Direct Path, nepotřebuje na audio výstupu oddělovací kondenzátory, protože výstup už kmitá kolem nuly (GND). Ale aby toho byl schopen dosáhnout pomocí napětí +3,3 V, musí si vytvořit i záporné napětí -3,3 V (VNEG větev). C22 mezi piny CAPP a CAPM (flying capacitor), má dvě fáze. V první fázi se nabije na 3,3 V, ve druhé fázi se přepne mezi GND a pin VNEG (přelije náboj do záporné větve). - Hodnota převzaná od Texas Instruments.
 
-- C23 mezi VNEG a CPGND je vyhlazovací kondenzátor záporného napětí, udržuje stabilních 3,3 V. 
+- C23 mezi VNEG a CPGND je vyhlazovací kondenzátor záporného napětí, udržuje stabilních -3,3 V vůči zemi. 
 
 - C24 - analogový výstupní filtr RC
 

@@ -529,7 +529,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 69.85 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -552,6 +552,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 69.85 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
 			(at 69.85 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -605,7 +616,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 50.8 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -628,6 +639,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 50.8 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
 			(at 50.8 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -681,7 +703,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 31.75 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -704,6 +726,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 31.75 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
 			(at 31.75 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -757,7 +790,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3"
 			(at 88.9 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -780,6 +813,17 @@
 			)
 		)
 		(property "Description" "Mounting Hole without connection"
+			(at 88.9 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
 			(at 88.9 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -1671,7 +1715,7 @@
 				(justify left)
 			)
 		)
-		(pin "BAT_SENSE" input
+		(pin "BAT_SENSE" output
 			(at 119.38 36.83 180)
 			(uuid "66322bc4-b5e8-4ec2-a96c-af4878dd9381")
 			(effects
@@ -1681,7 +1725,7 @@
 				(justify left)
 			)
 		)
-		(pin "BUCK_PS" input
+		(pin "BUCK_PS" output
 			(at 119.38 34.29 180)
 			(uuid "8a23d32c-9ce3-4857-a689-e6df23faa4dc")
 			(effects
