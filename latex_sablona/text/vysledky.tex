@@ -320,6 +320,18 @@ Výstupní vazební kondenzátory C17, C18 polarizované elektrolytické, zabra�
 \end{equation}
 
 
+\section{Paměťová část}
+V sekci úložiště je využit DM3AMT-ST-PEJM5 konektor typu push-push; vložení i vysunutí Micro SD karty se provádí stisknutím karty, konektor brázní samovolnému vypadnutí. Výrobce Hirose uvádní i ochranu proti obrácenému zasunutí karty \cite{datasheet_hirose_dm3}. 
 
+Piny \texttt{DET\_B}  a \texttt{DET\_A} nejsou elektricky spojeny s kartou, pouze tvoří vývody mechanického spínače. Spínač sepne jestliže je karta plně zasunuta a mikrokontrolér ze signálu \texttt{SD\_DET} určí přítomost karty a zahájí její čtení nebo případně další manipulaci s daty. Bez karty je spínač rozepnutý, přes pull-up rezistor R21 neteče žádný proud a nevzniká zde ani úbytek napětí. GPIO mikrokotroléru čte ze signálu \texttt{SD\_DET} logickou 1. Jakmile je karta zasunuta, spínač uzel spojí se zemí a logická 0, napětí na uzlu je nulové (GND), a přes R21 teče proud a cca 70 \textmu A podle \ref{sd_karta_vypocet_proudu}. 
+\begin{equation}
+    I_{\mathrm{DET}} = \frac{U_{\mathrm{CC}}}{R_{21}}
+    = \frac{3{,}3\,\mathrm{V}}{47\,\mathrm{k}\Omega}
+    \approx 70\,\mathrm{\mu A},
+    \label{sd_karta_vypocet_proudu}
+\end{equation}
+Pull-up rezistor je zde nutný, protože spínač umí uzel pouze stáhnout k zemi, nikoliv jej vytáhnout nahoru. Detekce karty je také možná přes pin 1 \texttt{DAT3}, ale jeho funce může být uživatelem nastavena jinak než je jeho zamýšlená funkce; navíc koliduje s 4bitovým režimem. Mechanický spínač zde bude mít zákmity, signál \texttt{SD\_DET} by bylo potřeba filtrovat přes RC článek, avšak pro tuto práci byla zvolena softwarová filtrace, cca 10-50 ms debounce, bude doplněno v následující bakalářské práci. Jak bylo zmíněno, podle \ref{sd_karta_vypocet_proudu} teče zde neustálý proud, u bateriového zařízení je tato spotřeba nezanedbatelná. Sekce o spotřebě bude více rozebíraná v následující práci.
+
+Pull-up rezistory se podle \cite{manual_sandisk_microsd} musí umisťovat externě uživatelem, a to na všechny signály kromě hodinového signálu \texttt{SD\_CLK}. Je zde i možnost pro nterní pull-up rezistory v STM32, ale ty mohou být příliš slabé nebo mohou být krátkodobě odpojovány při změně konfigurace rozhraní, vedoucí k chybám komunikace mezi mikrokontrolérem a samotnou SD kartou. Hodnota pull-up rezistoru musí být podle \cite[s.~4]{an2111_swissbit} v  rozsahu od 10\,k$\Omega$ do 100\,k$\Omega$. V navrženém zapojení jsou osazeny rezistory R16 až R20 s hodnotou 47\,k$\Omega$. Hodnota leží uvnitř rozsahu 10 až 100\,k$\Omega$ doporučeného pro datové vodiče \cite[s.~4]{an2111_swissbit}, \cite[s.~3-8, tab.~3-5]{manual_sandisk_sd}. Vyšší hodnota snižuje klidový odběr zatímco rychlost sběrnice neomezuje, hrany signálů aktivně tvoří budiče typu push-pull \cite[s.~15]{manual_sandisk_microsd}. Stejnou hodnotu používá i referenční návrh vývojové desky výrobce mikrokontroléru \cite[s.~44, obr.~28]{um2411_st}.
 
 
