@@ -1315,16 +1315,6 @@
 		)
 		(uuid "5d435d80-c5b8-43e7-b777-a4db837bee6e")
 	)
-	(text "C27 ověřit DC bias"
-		(exclude_from_sim no)
-		(at 215.646 116.332 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "9bcf28a3-32df-43fe-9440-d35f6fe69d92")
-	)
 	(text "doporučneí Texas instruments = jednoduchý RC nízkopropustný filtr, omezující vf složky"
 		(exclude_from_sim no)
 		(at 214.122 52.832 0)
@@ -2517,6 +2507,28 @@
 				)
 			)
 		)
+		(property "MPN" "CL21B225KOFNNNE"
+			(at 73.66 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 73.66 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "19ec8821-f00f-4f58-ae37-45638d12db18")
 		)
@@ -2598,7 +2610,18 @@
 				)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "CC0805KRX7R9BB104"
+			(at 83.82 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 83.82 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2767,6 +2790,28 @@
 				)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 73.66 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 73.66 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "1275c684-2529-4617-9cbe-e224a304d1ba")
 		)
@@ -2838,6 +2883,28 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 73.66 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL10A106KP8NNNC"
+			(at 73.66 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
 			(at 73.66 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -2940,6 +3007,17 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 73.66 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d41b2eab-1948-488b-b1f9-2c6a131e65ff")
 		)
@@ -3011,6 +3089,28 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 198.12 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 198.12 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 198.12 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -3249,6 +3349,28 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 113.03 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-07100KL"
+			(at 113.03 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 113.03 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -3575,6 +3697,28 @@
 				)
 			)
 		)
+		(property "MPN" "PCM5102APWR"
+			(at 146.05 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 146.05 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "16"
 			(uuid "01196ac2-33d2-4dde-bbf4-f3c99b0cc929")
 		)
@@ -3730,17 +3874,6 @@
 				)
 			)
 		)
-		(property "RevB" "revB S3"
-			(at 162.56 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6aa6696b-74cb-4c6a-9527-d48d5fead7ae")
 		)
@@ -3811,6 +3944,28 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 180.34 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-07470RL"
+			(at 180.34 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 180.34 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -3902,6 +4057,28 @@
 				)
 			)
 		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 83.82 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 83.82 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "4f46cc39-bb61-4f1c-8521-d55f62a7e0db")
 		)
@@ -3973,6 +4150,28 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 199.39 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0603JRNPO9BN222"
+			(at 199.39 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 199.39 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -4065,6 +4264,17 @@
 			)
 		)
 		(property "MPN" "CL21A106KAYNNNE"
+			(at 208.28 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
 			(at 208.28 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -4470,6 +4680,28 @@
 				)
 			)
 		)
+		(property "MPN" "CC0603JRNPO9BN222"
+			(at 209.55 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 209.55 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6e05cd7b-f26a-4d5f-85e8-c5415cbe48c6")
 		)
@@ -4540,6 +4772,28 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 171.45 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-07470RL"
+			(at 171.45 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
 			(at 171.45 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -4719,6 +4973,17 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Samsung"
+			(at 85.09 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "ea11ff45-4014-4be1-9a0a-74b268fa84d4")
 		)
@@ -4790,6 +5055,28 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 163.83 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL21B225KOFNNNE"
+			(at 163.83 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
 			(at 163.83 87.63 0)
 			(hide yes)
 			(show_name no)

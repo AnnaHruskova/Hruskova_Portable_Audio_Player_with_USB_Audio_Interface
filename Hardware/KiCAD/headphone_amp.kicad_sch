@@ -1708,6 +1708,16 @@
 		)
 		(uuid "1b8143a1-57a9-4522-8a49-ba7210c964db")
 	)
+	(text "tantal protože jsou nízké oproti elektolyt."
+		(exclude_from_sim no)
+		(at 254 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5c3abbaf-1134-4b7d-a997-07a8042ecd7e")
+	)
 	(text "velikost výstupních kondenzátorů závisí na impedanci slcuhátek\n"
 		(exclude_from_sim no)
 		(at 193.548 144.018 0)
@@ -1779,16 +1789,22 @@
 		(uuid "640d57b4-6993-4978-9355-7c0196550310")
 	)
 	(junction
-		(at 187.96 109.22)
+		(at 193.04 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "705b35d1-1800-440a-b612-1aa6598be211")
+		(uuid "7869d764-f2b2-4383-983f-5c0c607d60bd")
 	)
 	(junction
 		(at 220.98 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9be4c08c-a868-4429-985b-6d0b29c59d83")
+	)
+	(junction
+		(at 187.96 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a5ed5094-22c2-4502-84b5-a4f24d89e327")
 	)
 	(junction
 		(at 113.03 109.22)
@@ -1807,12 +1823,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bf91a9fb-0811-4326-800e-8bc0bdb3e520")
-	)
-	(junction
-		(at 193.04 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "cc8ec378-b891-4406-bf17-bc79dc72cf2a")
 	)
 	(wire
 		(pts
@@ -1856,7 +1866,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 109.22) (xy 203.2 109.22)
+			(xy 186.69 109.22) (xy 187.96 109.22)
 		)
 		(stroke
 			(width 0)
@@ -1993,6 +2003,16 @@
 			(type default)
 		)
 		(uuid "54292446-2944-46ba-b7f7-2f60c5b475b7")
+	)
+	(wire
+		(pts
+			(xy 187.96 109.22) (xy 193.04 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "555199e8-5877-4733-b16e-9eb5583e5403")
 	)
 	(wire
 		(pts
@@ -2256,16 +2276,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 109.22) (xy 186.69 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d66be845-c334-4da9-ac67-8746fffe0680")
-	)
-	(wire
-		(pts
 			(xy 113.03 105.41) (xy 113.03 109.22)
 		)
 		(stroke
@@ -2393,6 +2403,16 @@
 			(type default)
 		)
 		(uuid "f6f3437a-929a-47f1-9176-c953be2700bf")
+	)
+	(wire
+		(pts
+			(xy 193.04 109.22) (xy 203.2 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff0a297c-6851-49fe-a2fd-c61954f67731")
 	)
 	(hierarchical_label "DAC_OUT_L"
 		(shape input)
@@ -2528,6 +2548,119 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 106.68 105.41 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "06636efd-0d61-45a6-9e3b-dc7f30d74ab2")
+		(property "Reference" "C18"
+			(at 107.569 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470u"
+			(at 107.569 100.33 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D"
+			(at 102.87 106.3752 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Polarized capacitor"
+			(at 106.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "T520D477M006ATE015"
+			(at 106.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 106.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C696809"
+			(at 106.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ac9a02b0-143a-4d21-bb47-ce17b5b7387f")
+		)
+		(pin "2"
+			(uuid "3aa68ce1-4c9a-481d-9ddf-38c7808f5c3c")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 74.93 111.76 270)
 		(unit 1)
@@ -2583,6 +2716,28 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 74.93 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM21BR71C225KA12L"
+			(at 74.93 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Murata"
 			(at 74.93 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -2680,86 +2835,6 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
 					(reference "#PWR0502")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 215.9 102.87 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "10fba85c-55db-4b34-a0c2-6bad523a5e05")
-		(property "Reference" "C17"
-			(at 215.011 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "470u"
-			(at 215.011 97.79 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
-			(at 219.71 101.9048 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 215.9 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 215.9 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "11f093ef-64a1-4ada-9c04-25e93c8e3502")
-		)
-		(pin "2"
-			(uuid "3e5080c1-c4d7-43e9-84d4-b585efc09c17")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -2909,6 +2984,28 @@
 				)
 			)
 		)
+		(property "MPN" "SJ-3523-SMT-TR"
+			(at 133.35 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Same Sky (CUI)"
+			(at 133.35 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "S"
 			(uuid "2cd210da-f14d-458a-aca9-8bc14de11895")
 		)
@@ -2928,8 +3025,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized")
-		(at 106.68 105.41 270)
+		(lib_id "Device:C")
+		(at 107.95 119.38 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2937,30 +3034,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2fb87bbd-2262-4813-8d34-52ecadaf1b36")
-		(property "Reference" "C18"
-			(at 107.569 97.79 90)
+		(uuid "2986e033-a001-45bb-aa32-1163bb772dad")
+		(property "Reference" "C34"
+			(at 104.902 120.396 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "470u"
-			(at 107.569 100.33 90)
+		(property "Value" "1u"
+			(at 104.902 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
-			(at 102.87 106.3752 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 108.9152 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2971,7 +3069,109 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 105.41 0)
+			(at 107.95 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 107.95 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL10A105KB8NNNC"
+			(at 107.95 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 107.95 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bbedcb81-8726-4f4b-a012-cea36b2cace4")
+		)
+		(pin "1"
+			(uuid "c0d8f17e-56cd-4703-9818-aea41e33e760")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "C34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 215.9 102.87 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35701a60-eeaf-4d38-ac6c-564777834c6a")
+		(property "Reference" "C17"
+			(at 215.011 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470u"
+			(at 215.011 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D"
+			(at 219.71 101.9048 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 215.9 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2982,7 +3182,40 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
-			(at 106.68 105.41 0)
+			(at 215.9 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "T520D477M006ATE015"
+			(at 215.9 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 215.9 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C696809"
+			(at 215.9 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2993,175 +3226,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "225bb04e-8aeb-4744-95e5-625d2654e021")
+			(uuid "59a070ab-9f72-4494-94c3-442e16fbb7ed")
 		)
 		(pin "2"
-			(uuid "4f9e9359-0196-43ad-86f6-6b2e0e4922ba")
+			(uuid "4e8d544c-cff4-49c9-904c-575df7783326")
 		)
 		(instances
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "C18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 85.09 111.76 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "315c1b3b-e77d-4bc6-93f6-570d3f9f6dac")
-		(property "Reference" "R24"
-			(at 85.09 105.41 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "20K"
-			(at 85.09 107.95 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 85.09 113.538 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 85.09 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ded5af2f-aac0-4d9a-a4de-59c3297b37d7")
-		)
-		(pin "2"
-			(uuid "492da385-0cca-4b90-afa2-580ebe81ede3")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "R24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 199.39 132.08 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "32981f27-89a7-4ab3-b0b4-cdc3d9360d1f")
-		(property "Reference" "R42"
-			(at 199.39 125.73 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100K"
-			(at 199.39 128.27 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 199.39 133.858 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 199.39 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 199.39 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fb0fab88-e286-4038-b741-21e7a6cb4b5a")
-		)
-		(pin "2"
-			(uuid "d134d22f-194a-45df-b7fe-af2c935cbd4e")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "R42")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -3337,7 +3410,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "5566e160-b9cc-4944-887a-939221c2e09a")
+		(uuid "43812423-2217-41a2-9244-fd1a7648a5f3")
 		(property "Reference" "R27"
 			(at 215.9 107.95 90)
 			(show_name no)
@@ -3402,16 +3475,129 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 215.9 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "8a6af308-356f-436b-aa5f-b71e478fe821")
+			(uuid "ef426b05-37f0-4cd0-a01d-55fb8903322b")
 		)
 		(pin "2"
-			(uuid "d1e003d1-a955-4751-817c-9ac136a92fb2")
+			(uuid "eb4aab26-5a7e-4520-89ac-9f8469ddf4e4")
 		)
 		(instances
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
 					(reference "R27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 233.68 118.11 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "57b17ebf-366f-4d42-88d4-562f6f6e1bb5")
+		(property "Reference" "R26"
+			(at 233.68 111.76 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "20K"
+			(at 233.68 114.3 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 233.68 116.332 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 233.68 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0603BRD0720KL"
+			(at 233.68 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 233.68 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "93f1afd3-0ab3-4398-bc15-74dbd937d909")
+		)
+		(pin "2"
+			(uuid "c07fc913-7645-469e-8509-128af87381ec")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -3644,87 +3830,6 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
 					(reference "#PWR048")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 107.95 119.38 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6e2770ac-ac5e-47c3-8f0d-953f1abd9351")
-		(property "Reference" "C34"
-			(at 104.902 120.396 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1u"
-			(at 104.902 117.856 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 108.9152 123.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 107.95 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0ad2600d-0a90-4350-8269-12102817c395")
-		)
-		(pin "1"
-			(uuid "7835058e-a462-40f8-8696-49d5e6af89d9")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -3991,87 +4096,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 187.96 105.41 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9f029687-8040-49ef-9b3b-d86ac70f343b")
-		(property "Reference" "C37"
-			(at 184.912 105.156 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "0.1u"
-			(at 184.912 102.616 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 188.9252 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 187.96 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 187.96 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "27c69617-9f33-481d-9f54-fa95290ead06")
-		)
-		(pin "1"
-			(uuid "3dc189d8-df88-45a1-8b7e-297afa8dab0b")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "C37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 162.56 35.56 90)
 		(unit 1)
@@ -4145,6 +4169,313 @@
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
 					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 199.39 132.08 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9c65d2a-d045-4818-a11f-194024dceaa8")
+		(property "Reference" "R42"
+			(at 199.39 125.73 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100K"
+			(at 199.39 128.27 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 199.39 133.858 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 199.39 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-07100KL"
+			(at 199.39 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 199.39 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d1b1187f-1d1d-43c8-a367-8f5aeaa28d77")
+		)
+		(pin "2"
+			(uuid "3a6be1b3-cfd0-4df8-92a5-7d8742fcd26d")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "R42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 85.09 111.76 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b1ba608d-f2ea-41b6-a46a-23ef3e1dd6f9")
+		(property "Reference" "R24"
+			(at 85.09 105.41 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "20K"
+			(at 85.09 107.95 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 85.09 113.538 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 85.09 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RT0603BRD0720KL"
+			(at 85.09 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 85.09 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3f0d14f8-726c-45e4-abdc-b2e64a85f6d3")
+		)
+		(pin "2"
+			(uuid "5d236622-8f07-4296-96c5-b484a54f1811")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 187.96 105.41 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "be7ed056-639c-4a96-83fc-9bec84481e3d")
+		(property "Reference" "C37"
+			(at 184.912 105.156 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 184.912 102.616 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 188.9252 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 187.96 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB104"
+			(at 187.96 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Yageo"
+			(at 187.96 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "ca6876b5-e03e-4bb2-b7c9-b0f73a4436cb")
+		)
+		(pin "1"
+			(uuid "ce6ae9fb-82a4-43a5-815c-1afb3de97ad0")
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
+					(reference "C37")
 					(unit 1)
 				)
 			)
@@ -4404,7 +4735,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e616b661-3975-4b45-99cc-d591f51fdfef")
+		(uuid "de99a7a5-f8b5-45d6-89bf-61357a6969a2")
 		(property "Reference" "C40"
 			(at 199.898 105.918 0)
 			(show_name no)
@@ -4460,96 +4791,38 @@
 				)
 			)
 		)
+		(property "MPN" "CL21A106KAYNNNE"
+			(at 193.04 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung"
+			(at 193.04 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
-			(uuid "4531ec11-252c-4937-8dd2-1017da8adc44")
+			(uuid "43f8ecce-ecbf-48c4-a2a4-aab10237cec8")
 		)
 		(pin "1"
-			(uuid "a97ee14e-030b-4595-811b-400e018ae4f0")
+			(uuid "f616d589-5ba2-409a-918d-8e492f1efbe6")
 		)
 		(instances
 			(project "bc_prace"
 				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
 					(reference "C40")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 233.68 118.11 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ebcd99cf-bd88-41b3-b8ba-d1fe437d9437")
-		(property "Reference" "R26"
-			(at 233.68 111.76 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "20K"
-			(at 233.68 114.3 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 233.68 116.332 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 233.68 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 233.68 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aa04e052-ac42-4d0c-80fc-27b0a273a48f")
-		)
-		(pin "2"
-			(uuid "19419674-b4ef-46f1-828d-34c6054ce0f4")
-		)
-		(instances
-			(project "bc_prace"
-				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d/ed41c912-1b86-46d6-b219-ca3540877d6b"
-					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -4566,7 +4839,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "f409941c-0840-4d9c-b0d0-b1bd1487cdbf")
+		(uuid "feb1833e-76e8-4deb-b1a3-b8532c27df5e")
 		(property "Reference" "R25"
 			(at 95.25 102.87 90)
 			(show_name no)
@@ -4631,11 +4904,22 @@
 				)
 			)
 		)
+		(property "Manufacturer" "Yageo"
+			(at 95.25 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "12071b59-23fb-4111-818c-fa6560d9d28b")
+			(uuid "b13f9a24-78f5-4564-8f80-6ba2be2e338e")
 		)
 		(pin "2"
-			(uuid "956a4a7e-523b-451d-a4a6-0b94d078c50c")
+			(uuid "182676b8-a43d-4d87-95d2-c8eee5146f4a")
 		)
 		(instances
 			(project "bc_prace"

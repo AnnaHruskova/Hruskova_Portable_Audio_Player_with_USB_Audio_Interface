@@ -657,6 +657,11 @@
           "name": "MPN",
           "url": true,
           "visible": false
+        },
+        {
+          "name": "Manufacturer",
+          "url": false,
+          "visible": false
         }
       ],
       "hop_over_size_choice": 0,
