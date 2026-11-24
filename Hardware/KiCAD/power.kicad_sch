@@ -11585,7 +11585,7 @@
 				)
 			)
 		)
-		(property "Value" "BAT_JST_PH_3P, 1P, 2N"
+		(property "Value" "BAT_JST_PH_3P"
 			(at 283.21 127.254 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11640,6 +11640,17 @@
 			)
 		)
 		(property "Poznamka" "1 = BAT+, 2 = BAT-, 3 = NTC 10k (103AT-2)"
+			(at 283.21 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "JST"
 			(at 283.21 121.92 0)
 			(hide yes)
 			(show_name no)
