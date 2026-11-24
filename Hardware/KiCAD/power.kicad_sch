@@ -16724,7 +16724,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010"
 			(at 223.52 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -16757,7 +16757,7 @@
 				)
 			)
 		)
-		(property "MPN" "B3F-1000"
+		(property "MPN" "SKRTLAE010"
 			(at 223.52 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -16768,7 +16768,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Omron"
+		(property "Manufacturer" "Alps Alpine"
 			(at 223.52 193.04 0)
 			(hide yes)
 			(show_name no)

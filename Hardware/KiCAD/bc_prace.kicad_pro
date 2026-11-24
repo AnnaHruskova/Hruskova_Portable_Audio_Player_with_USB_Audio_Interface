@@ -43,11 +43,11 @@
           "height": 1.27,
           "width": 1.27
         },
-        "silk_line_width": 0.1,
+        "silk_line_width": 0.15,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
-        "silk_text_thickness": 0.1,
+        "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
           "border_display_style": 2,
@@ -60,10 +60,10 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.25,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
@@ -146,7 +146,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.09,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
@@ -538,6 +538,21 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.254,
+        "diff_pair_width": 0.1524,
+        "microvia_diameter": 0.6858,
+        "microvia_drill": 0.3302,
+        "name": "Power",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.4,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       }
     ],
     "meta": {
@@ -545,7 +560,24 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Power",
+        "pattern": "+3.3V*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "Net-(U1-VLXSMPS)"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -699,7 +731,7 @@
         "uuid": "db74a520-5f8d-46f6-9928-2225bcffa33d"
       }
     ],
-    "used_designators": "R1-13,R16-42,R44,#FLG1-5,#FLG201-202,#FLG401,#FLG501,J1-6,L1-3,#PWR1-84,#PWR202-205,#PWR207,#PWR301-306,#PWR401-402,#PWR501-503,#PWR902,U1-12,C1-69,Q1,SW1-6,D1-2,H1-4,FB1-2,Y1-2",
+    "used_designators": "R1-13,R16-42,R44,#FLG1-5,#FLG201-202,#FLG401,#FLG501,J1-6,L1-3,#PWR1-86,#PWR202-205,#PWR207,#PWR301-306,#PWR401-402,#PWR501-503,#PWR902,U1-12,C1-69,Q1,SW1-6,D1-2,H1-4,FB1-2,Y1-2,JP1",
     "variants": []
   },
   "sheets": [
