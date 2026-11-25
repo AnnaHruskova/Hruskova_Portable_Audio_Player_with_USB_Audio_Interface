@@ -2984,7 +2984,7 @@
 				)
 			)
 		)
-		(property "MPN" "SJ-3523-SMT-TR"
+		(property "MPN" "SJ1-3523N"
 			(at 133.35 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -2996,6 +2996,17 @@
 			)
 		)
 		(property "Manufacturer" "Same Sky (CUI)"
+			(at 133.35 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C20182914"
 			(at 133.35 38.1 0)
 			(hide yes)
 			(show_name no)

@@ -131,3 +131,15 @@
 	(constraint clearance (min 0.127mm))
 )
 
+(rule "JLC HDI laserovy slepy prokov"
+  (condition "A.isBlindBuriedVia()")
+  (constraint via_diameter (min 0.25mm) (opt 0.25mm))
+  (constraint hole_size (min 0.075mm) (opt 0.1mm) (max 0.15mm))
+  (constraint annular_width (min 0.075mm))
+)
+
+(rule "JLC pruchozi prokov bez priplatku"
+  (condition "A.Type == 'Via' && !A.isBlindBuriedVia() && !A.isMicroVia()")
+  (constraint via_diameter (min 0.6mm))
+  (constraint hole_size (min 0.3mm))
+)
