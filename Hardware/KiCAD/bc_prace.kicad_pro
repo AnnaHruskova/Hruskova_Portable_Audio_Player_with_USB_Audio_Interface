@@ -567,15 +567,27 @@
       },
       {
         "netclass": "Power",
-        "pattern": "/Power/*"
-      },
-      {
-        "netclass": "Power",
         "pattern": "GND"
       },
       {
         "netclass": "Power",
         "pattern": "Net-(U1-VLXSMPS)"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VBUS"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/sys_power"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BAT*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK_*"
       }
     ]
   },
