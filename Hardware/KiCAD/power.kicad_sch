@@ -7367,6 +7367,17 @@
 		)
 		(uuid "f6e681e0-f677-4059-9f58-9f37b78ae2a9")
 	)
+	(hierarchical_label "D_N"
+		(shape input)
+		(at 102.87 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "019895ce-1b35-45cb-8cd6-1dc623c1df4b")
+	)
 	(hierarchical_label "CHG_DISABLE"
 		(shape input)
 		(at 158.75 85.09 180)
@@ -7377,17 +7388,6 @@
 			(justify right)
 		)
 		(uuid "3e7cc2df-6350-4ec2-8ef0-a0240c17761f")
-	)
-	(hierarchical_label "D_M"
-		(shape input)
-		(at 102.87 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "40adb225-7e78-49d4-bb67-f033d6a139f7")
 	)
 	(hierarchical_label "CHG_PGOOD"
 		(shape output)
@@ -7410,6 +7410,17 @@
 			(justify left)
 		)
 		(uuid "5af966f1-c664-402e-96ed-23d2c6082cb9")
+	)
+	(hierarchical_label "D_N"
+		(shape input)
+		(at 5.105 0.8096 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6397aecf-696f-4153-ba0c-1bc1be7b49b6")
 	)
 	(hierarchical_label "VBUS_DET"
 		(shape input)

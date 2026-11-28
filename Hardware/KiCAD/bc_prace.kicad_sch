@@ -843,6 +843,104 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 50.8 177.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "eeb78956-a7ef-4151-8a8b-dfb6e6c2ba18")
+		(property "Reference" "H5"
+			(at 53.34 176.5299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 53.34 179.0699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.7mm"
+			(at 50.8 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 50.8 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 50.8 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 50.8 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 50.8 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "bc_prace"
+				(path "/db74a520-5f8d-46f6-9928-2225bcffa33d"
+					(reference "H5")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(sheet
 		(at 28.575 111.125)
 		(size 46.355 26.035)
@@ -1057,16 +1155,6 @@
 				(justify right)
 			)
 		)
-		(pin "D_M" input
-			(at 74.93 40.64 0)
-			(uuid "fe67d30a-d48b-4100-b347-44a7410c20d7")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "D_P" input
 			(at 74.93 43.18 0)
 			(uuid "be0bf681-8ad4-4d70-ada0-42106921ded6")
@@ -1090,6 +1178,16 @@
 		(pin "BUCK_PS" input
 			(at 74.93 34.29 0)
 			(uuid "3a52dfdf-7d22-4155-908d-c8699b4a3bbd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D_N" input
+			(at 74.93 40.64 0)
+			(uuid "53ef8f12-bef6-4370-84de-84bf24934b39")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1695,16 +1793,6 @@
 				(justify left)
 			)
 		)
-		(pin "D_M" input
-			(at 119.38 40.64 180)
-			(uuid "b21eb9c4-c2f7-4125-9d94-0cfa4f2431de")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "D_P" input
 			(at 119.38 43.18 180)
 			(uuid "99a4c852-ede4-49a7-a185-e024b0c6dffc")
@@ -1728,6 +1816,16 @@
 		(pin "BUCK_PS" output
 			(at 119.38 34.29 180)
 			(uuid "8a23d32c-9ce3-4857-a689-e6df23faa4dc")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "D_N" input
+			(at 119.38 40.64 180)
+			(uuid "a750e48f-d15e-440f-b13b-566ede200786")
 			(effects
 				(font
 					(size 1.27 1.27)

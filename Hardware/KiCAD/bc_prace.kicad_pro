@@ -64,7 +64,7 @@
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 2,
-          "remove_islands": 1,
+          "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
@@ -547,9 +547,21 @@
         "microvia_drill": 0.3302,
         "name": "Power",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.25,
+        "name": "USB",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.25,
         "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3
@@ -588,6 +600,10 @@
       {
         "netclass": "Power",
         "pattern": "/Power/BUCK_*"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/MCU/D_*"
       }
     ]
   },
@@ -743,7 +759,7 @@
         "uuid": "db74a520-5f8d-46f6-9928-2225bcffa33d"
       }
     ],
-    "used_designators": "R1-13,R16-42,R44,#FLG1-5,#FLG201-202,#FLG401,#FLG501,J1-6,L1-3,#PWR1-86,#PWR202-205,#PWR207,#PWR301-306,#PWR401-402,#PWR501-503,#PWR902,U1-12,C1-69,Q1,SW1-6,D1-2,H1-4,FB1-2,Y1-2,JP1",
+    "used_designators": "R1-13,R16-42,R44,#FLG1-5,#FLG201-202,#FLG401,#FLG501,J1-6,L1-3,#PWR1-86,#PWR202-205,#PWR207,#PWR301-306,#PWR401-402,#PWR501-503,#PWR902,U1-12,C1-69,Q1,SW1-6,D1-2,H1-5,FB1-2,Y1-2,JP1",
     "variants": []
   },
   "sheets": [
